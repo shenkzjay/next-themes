@@ -471,11 +471,11 @@ img {
   background-clip: text;
   color: transparent;
 
-  /* animation: slidetext 3s linear infinite; */
+  animation: slidetext 3s alternate infinite;
 }
 
 .headertxt {
-  background: linear-gradient(45deg, cyan 40%, #7d49ed 60%, coral 80%) 0 0 /100vmin 100vmin;
+  background: linear-gradient(45deg, cyan 40%, #7d49ed 60%, coral 100%) 0 0 /100vmin 100vmin;
   background-repeat: no-repeat;
   background-clip: text;
   color: transparent;
@@ -491,6 +491,6 @@ img {
 
 @keyframes slidetext {
   to {
-    background-position: 100%;
+    background-position: 0 100%;
   }
 }
