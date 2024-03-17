@@ -2,26 +2,495 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* background gradient style */
+
+body {
+  /* position: relative;
+  z-index: -2222; */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+.wrapper_style {
+  height: auto;
+  width: 100vw;
+  background: radial-gradient(ellipse at top, purple 0%, transparent 50%) 0 0 / 80vmin 100vmin
+      no-repeat,
+    radial-gradient(ellipse at bottom, purple 0%, transparent 50%) 100% 0 / 80vmin 100vmin no-repeat,
+    linear-gradient(#1e1e1e, #1e1e1e);
+  position: fixed;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.box {
+  width: 300px;
+  height: 80px;
+  border-radius: 5px;
+  background: #1e1e1e;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  margin: 2rem;
+  z-index: -1;
+  /* border: 3px solid black; */
+  box-shadow: 5px 5px hsla(0, 0%, 0%, 1) inset, -5px -5px hsla(0, 0%, 0%, 1) inset;
+}
+.linear::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background-image: conic-gradient(lightgray 40deg, transparent 120deg);
+  border-radius: 5px;
+  animation: rotate 6s linear infinite;
+  transform-origin: center;
+}
+.linear::after {
+  content: "Checkout our services";
+  font-weight: 600;
+  position: absolute;
+  inset: 5px;
+  background: #1e1e1e;
+  color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2em;
+  padding: 2rem;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
+/* skeleton loading */
+.skeletonloading {
+  background-color: #dddbdd;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  &::after {
+    width: 100%;
+    height: 100%;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -1rem;
+    background: linear-gradient(90deg, transparent 0%, white 40%, transparent 80%);
+    background-repeat: no-repeat;
+    animation: shimmer 3s linear infinite;
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(200%);
+  }
+}
+
+/* 
+border color: rgba(161, 174, 229, .22) */
+
+/* horizontal card style */
+.hori_card {
+  background-color: rgba(255, 255, 255, 0.025);
+  backdrop-filter: url(#noise) blur(5px);
+  /* filter: url(#noise); */
+}
+
+/* section bg */
+
+.section_bg {
+  position: relative;
+}
+
+/* ads style */
+.ads_style {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: radial-gradient(ellipse, rgba(128, 0, 128, 0.5) 10%, transparent 50%) 50% -100% / 200vmin
+    70vmin no-repeat;
+}
+
+.about_style {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background: radial-gradient(ellipse at left, rgba(128, 0, 128, 0.5) 20%, transparent 50%) 0% 40% /
+    80vmin 100vmin no-repeat;
+}
+
+.about_style::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(data:image/png;base64,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);
+  background-position: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.textheader {
+  filter: url(#textheader);
+}
+
+.bord,
+.bord1,
+.bord2 {
+  backface-visibility: hidden;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+/* .imgcard {
+  position: relative;
+}
+
+.imgcard::before {
+  content: "";
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 80%;
+  height: 100%;
+  background: linear-gradient(hsl(0, 0%, 10%), hsl(0, 0%, 20%)) 100% 20% / 60vmin 0.5vmin no-repeat,
+    linear-gradient(hsl(0, 0%, 20%), hsl(0, 0%, 20%)) no-repeat;
+  border-radius: 20px;
+  z-index: -1;
+} */
+
+.cardeffect {
+  position: relative;
+}
+
+/* .checkoutbtn {
   background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
+    rgba(255, 255, 255, 0.2) 0%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  background-position: 0 0;
+
+  box-shadow: 0px 1px 1px 0 rgba(255, 255, 255, 0.5) inset;
+  transition: all 1s ease-in;
+  width: 50%;
+}
+
+.checkoutbtn:hover {
+  background-position: 50px 50px;
+  transition: all 1s linear ease-in;
+  width: 100%;
+} */
+
+.cardeffect::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: -0.1rem;
+  left: 0;
+  z-index: -99;
+  background: radial-gradient(
+      ellipse,
+      rgba(255, 255, 255, 0.8) 0%,
+      rgba(255, 255, 255, 0.1) 40%,
+      transparent 50.5%
     )
-    rgb(var(--background-start-rgb));
+    50% 0% / 50vmin 0.5vmin no-repeat;
+}
+
+/* .cardeffect.active {
+  animation: roll 5s linear infinite;
+} */
+
+.settings.active {
+  animation: shift 1s linear forwards, roll 5s linear infinite;
+}
+
+.activebanny {
+  animation: reveal 0.5s ease-in-out forwards;
+}
+
+@keyframes roll {
+  to {
+    transform: translateX(50%) rotate(360deg);
+  }
+}
+
+@keyframes shift {
+  to {
+    transform: translateX(50%);
+  }
+}
+
+@keyframes reveal {
+  to {
+    transform: translateX(-120%);
+  }
+}
+
+.blink {
+  animation: 10s 3s infinite blink;
+}
+
+@keyframes blink {
+  /* eye blinking */
+  3% {
+    height: 0.05rem;
+    /* transform: translateY(0.7rem); */
+  }
+  7% {
+    height: 1.4rem;
+    transform: translateY(0);
+  }
+}
+
+#user,
+#password,
+#button,
+#forgot {
+  opacity: 0;
+}
+
+#form {
+  animation: move 0.5s linear forwards;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  50%,
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.iconbtn {
+  left: 0.5rem;
+  position: relative;
+  animation: jiggle 0.5s linear forwards;
+}
+
+.iconbtn:hover {
+}
+
+.textbtn {
+  position: relative;
+  margin-left: 1.5rem;
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.buttonBtn {
+  --width: 100%;
+  position: relative;
+  width: calc(var(--width) + 1.5rem + 2rem);
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  display: flex;
+
+  /* border: 1px solid white; */
+}
+
+.buttonBtn::before {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  content: "";
+  width: 60px;
+  height: 100%;
+  border-radius: 9999px;
+  border: 1px solid white;
+  transition: width 0.5s ease-in-out;
+  z-index: -999;
+  animation: intro 0.5s linear alternate;
+}
+
+.buttonBtn:hover::before {
+  width: 100%;
+}
+
+.arrowRight {
+}
+
+.headerstyles.active div .buttonBtn::before {
+  animation: intro 0.5s linear forwards;
+}
+
+.headerstyles.active .arrowRight {
+  animation: jiggle 0.5s linear forwards;
+}
+
+.headerstyles.active div .textbtn {
+  animation: fade 0.5s 300ms linear forwards;
+}
+
+.curtain {
+  position: absolute;
+  top: -18.3vmin;
+  right: 33vmin;
+  z-index: -99;
+}
+
+.textScrollAnimation {
+  font-size: 25px;
+  font-weight: bold;
+  background: linear-gradient(white, white);
+  background-size: auto;
+  background-position: 100%;
+  background-clip: text;
+}
+
+.moveImageSection {
+  perspective: 1000px;
+}
+
+#moveImage {
+  transform: rotateY(40deg);
+}
+
+@keyframes flow {
+}
+
+@keyframes jiggle {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes intro {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#header1,
+#text1 {
+  font-size: clamp(2rem, 10vw, 6rem);
+}
+
+#header3 {
+  font-size: clamp(2.5rem, 4vw, 5rem);
+}
+
+.billsection {
+  font-size: clamp(0.3rem, 10vw, 3rem);
+  background: linear-gradient(rgba(239, 239, 239, 0.1), rgba(239, 239, 239, 0.5)),
+    radial-gradient(ellipse at left, rgba(0, 255, 255, 0.2) 0%, transparent 50%) 0% 0% / 100% 80%,
+    radial-gradient(ellipse, rgba(255, 119, 0, 0.2) 10%, transparent 50%) 0% 100% / 60% 80%,
+    radial-gradient(ellipse at right, rgba(229, 255, 0, 0.2) 10%, transparent 50%) 100% 0% / 60%
+      100%;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(30px);
+}
+
+.secref {
+  height: 100%;
+  background: linear-gradient(rgba(239, 239, 239, 0.1), rgba(239, 239, 239, 0.5)),
+    radial-gradient(ellipse at left, rgba(229, 255, 0, 0.2) 0%, transparent 50%) 0% 50% / 60% 80%,
+    radial-gradient(ellipse, rgba(0, 255, 255, 0.2) 10%, transparent 50%) 50% 0% / 160vmin 100vmin,
+    radial-gradient(ellipse, rgba(255, 119, 0, 0.2) 10%, transparent 50%) 100% 100% / 200vmin
+      100vmin;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(30%);
+}
+
+#header2,
+#text2 {
+  font-size: clamp(2.3rem, 12vw, 10rem);
+}
+
+.paymentbanner {
+  font-size: clamp(2rem, 5vw, 10rem);
+}
+
+#west svg {
+  width: 100%;
+  height: 100%;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.topheader {
+  width: 100%;
+  height: 100vh;
+  background: radial-gradient(ellipse at left, rgba(0, 255, 255, 0.2) 0%, transparent 50%) 0% -100% /
+      100% 80%,
+    radial-gradient(ellipse, rgba(255, 119, 0, 0.2) 0%, transparent 50%) 60% -50% / 100vmin 90vmin;
+  /* radial-gradient(ellipse at left, rgba(0, 255, 255, 0.2) 30%, transparent 50%) 0% 100% / 100vmin
+      100vmin; */
+  background-repeat: no-repeat;
+}
+
+.imageAnimation {
+  background: linear-gradient(rgba(239, 239, 239, 0.1), rgba(239, 239, 239, 0.5)),
+    radial-gradient(ellipse at left, rgba(229, 255, 0, 0.2) 0%, transparent 50%) 0% 50% / 60% 80%,
+    radial-gradient(ellipse, rgba(0, 255, 255, 0.2) 10%, transparent 50%) 50% 0% / 160vmin 100vmin,
+    radial-gradient(ellipse, rgba(255, 119, 0, 0.2) 10%, transparent 50%) 100% 100% / 200vmin
+      100vmin;
+  background-repeat: no-repeat;
+  backdrop-filter: blur(100%);
+}
+
+.bgtext {
+  width: 100%;
+  background: linear-gradient(45deg, cyan 40%, #7d49ed 60%, coral 80%) 0 0 /100vmin 100vmin;
+  background-repeat: no-repeat;
+  background-clip: text;
+  color: transparent;
+
+  /* animation: slidetext 3s linear infinite; */
+}
+
+.headertxt {
+  background: linear-gradient(45deg, cyan 40%, #7d49ed 60%, coral 80%) 0 0 /100vmin 100vmin;
+  background-repeat: no-repeat;
+  background-clip: text;
+  color: transparent;
+}
+
+.paymentbanner.headertxt {
+  width: 100%;
+  background: linear-gradient(45deg, cyan 40%, #7d49ed 60%, coral 80%) 50% 0 /100vmin 100vmin;
+  background-repeat: no-repeat;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes slidetext {
+  to {
+    background-position: 100%;
+  }
 }

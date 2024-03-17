@@ -1,0 +1,63 @@
+.floating_label {
+  position: absolute;
+  top: 1rem;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0rem 0.2rem;
+  margin: 0 1rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(30px);
+  transition: top 0.1s ease-in-out;
+  color: #c4c4c4;
+}
+
+.floating_input {
+  width: 100%;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+}
+
+.floating_input:focus {
+  border: 2px solid #d4d4d4;
+  outline: none;
+}
+
+.floating_input:focus ~ .floating_label,
+.floating_input:not(:placeholder-shown) ~ .floating_label {
+  top: -0.5rem;
+  color: #c4c4c4;
+  font-size: 12px;
+}
+
+.pathodd {
+  offset-path: url(#svgCircle);
+  animation: move 1s linear infinite;
+}
+
+/* .floating_input:focus ~ label,
+.floating_input:not(:placeholder-shown) ~ label {
+  top: 0;
+} */
+
+.loader {
+  --d: 15px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  color: #25b09b;
+  box-shadow: calc(1 * var(--d)) calc(0 * var(--d)) 0 0,
+    calc(0.707 * var(--d)) calc(0.707 * var(--d)) 0 1px,
+    calc(0 * var(--d)) calc(1 * var(--d)) 0 0.5px,
+    calc(-0.707 * var(--d)) calc(0.707 * var(--d)) 0 1px,
+    calc(-1 * var(--d)) calc(0 * var(--d)) 0 1.5px,
+    calc(-0.707 * var(--d)) calc(-0.707 * var(--d)) 0 2.5px,
+    calc(0 * var(--d)) calc(-1 * var(--d)) 0 3px;
+  animation: l27 1s infinite steps(8);
+}
+@keyframes l27 {
+  100% {
+    transform: rotate(1turn);
+  }
+}
