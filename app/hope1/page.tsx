@@ -89,6 +89,9 @@ export default function HopeOne() {
         x: 3500,
         duration: 0.3,
       });
+      tl2.to(".loading", {
+        opacity: 0,
+      });
       tl2.to(["#header", "#text1", "#text2", "#test3", "#test4", ".dash"], {
         opacity: 1,
         y: -40,
@@ -171,16 +174,19 @@ export default function HopeOne() {
   return (
     <main>
       <section className="relative topheader">
-        <div className="flex absolute top-0 left-0 overflow-hidden w-[100vw] md:h-[100vh] h-full justify-center items-start">
+        <div className="hidden md:flex absolute top-0 left-0 overflow-hidden w-[100vw] md:h-[100vh] h-full justify-center items-start">
           <Track color="black" />
         </div>
-        <header className="flex reltive flex-col mx-auto container items-center md:justify-end justify-center w-full h-[90vh] md:mb-[150px] space-y-10 ">
+        <header className="flex relative flex-col mx-auto container items-center md:justify-end justify-center w-full md:h-[90vh] md:mb-[150px] space-y-10 ">
           {/* Navbar goes here */}
-          <div className="mx-6 md:mx-0 flex w-full flex-col gap-10">
+          <div className=" mx-6 md:mx-0 flex w-full flex-col gap-10">
             <div className="curtain ">
               <Dash />
             </div>
-            <nav></nav>
+            <nav className="loading relative top-44 w-full h-full flex justify-center items-center text-4xl">
+              {" "}
+              loading...
+            </nav>
             <div className="flex md:flex-row flex-col justify-between items-center w-full gap-10 text-[#1e1e1e]">
               <div
                 className="md:w-1/2 w-full opacity-0 flex flex-col md:justify-center md:items-start items-center"
@@ -272,7 +278,7 @@ export default function HopeOne() {
             </div>
           </div>
           <div className="md:w-1/2 right relative md:top-10 h-full bg-white ">
-            <div className="absolute top-0 flex flex-col w-full h-full">
+            <div className="absolute top-0 flex flex-col w-full h-full fixedImages">
               <Image
                 src={Invoice}
                 height={500}
