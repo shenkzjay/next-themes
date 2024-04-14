@@ -11,18 +11,18 @@ export const ArrowRight = () => {
         <path
           d="M27.4301 5.92969L33.5001 11.9997L27.4301 18.0697"
           stroke="currentColor"
-          stroke-width="1.5"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M1 12H33.33"
           stroke="currentColor"
-          stroke-width="1.5"
-          stroke-miterlimit="10"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeMiterlimit="10"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </svg>
     </div>

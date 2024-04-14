@@ -12,424 +12,314 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { ArrowRight } from "@/components/icons/arrowright";
 import Laptop from "../public/images/laptop.png";
+import localFont from "next/font/local";
+import { PrimaryButton, StyleButton } from "@/components/buttons/primarybtn";
+import { StarIcon } from "@/components/svgs/star";
+import { GlobeIcon } from "@/components/svgs/globe";
+import { LinkArrow } from "@/components/svgs/linkarrow";
 
-gsap.registerPlugin(ScrollTrigger);
+const clashDisplayFont = localFont({
+  src: [
+    {
+      path: "./fonts/ClashDisplay-Bold.woff",
+      weight: "800",
+    },
+    {
+      path: "./fonts/ClashDisplay-Extralight.woff",
+      weight: "300",
+    },
+    {
+      path: "./fonts/ClashDisplay-Light.woff",
+      weight: "400",
+    },
+    {
+      path: "./fonts/ClashDisplay-Medium.woff",
+      weight: "600",
+    },
+    {
+      path: "./fonts/ClashDisplay-Regular.woff",
+      weight: "500",
+    },
+    {
+      path: "./fonts/ClashDisplay-Semibold.woff",
+      weight: "700",
+    },
+  ],
+  display: "swap",
+});
 
 export default function App() {
-  const [isActive, setIsActive] = useState("");
-  const headerRef = useRef<any>();
-  const labelRef = useRef<any>();
-  const captionRef = useRef<any>();
-  const textRef = useRef<any>();
-  const btnRef = useRef<any>();
-  const imgSectionRef = useRef<any>();
-  const card1Ref = useRef<any>();
-  const card2Ref = useRef<any>();
-  const cardSectionRef = useRef<any>();
-
-  useGSAP(
-    () => {
-      const tl = gsap.timeline({
-        duration: 1,
-        scrollTrigger: {
-          trigger: headerRef.current,
-          scrub: true,
-          start: "top top",
-          end: "+=700",
-          pin: true,
-          markers: true,
-          anticipatePin: 1,
-        },
-      });
-
-      const tl2 = gsap.timeline({
-        stagger: 1,
-        scrollTrigger: {
-          trigger: cardSectionRef.current,
-          scrub: true,
-          start: "top",
-          end: "+=300",
-          markers: true,
-          anticipatePin: 1,
-        },
-      });
-
-      const tl3 = gsap.timeline({
-        scrollTrigger: {
-          trigger: imgSectionRef.current,
-          scrub: true,
-          start: "top",
-          end: "+=800",
-          markers: true,
-          anticipatePin: 1,
-          pin: true,
-        },
-      });
-
-      // const tl4 = gsap.timeline({
-      //   scrollTrigger: {
-      //     trigger: card2Ref.current,
-      //     start: "top",
-      //     end: "bottom",
-      //     toggleActions: "play reverse play reverse",
-      //   },
-      // });
-
-      // tl4.to("#test", { scale: 0.5 });
-
-      tl.to([labelRef.current, btnRef.current, textRef.current], { scale: 0, opacity: 0 });
-      tl.to(captionRef.current, { scale: 2, opacity: 0 });
-
-      tl2.to(cardSectionRef.current, { backgroundColor: "#f9f9f9" });
-      tl2.to("#cardRef1", { scale: 0.8, ease: "power1", duration: 1 });
-      tl2.to("#cardRef2", { scale: 1.2, ease: "power1", duration: 1 });
-
-      tl3.to(imgSectionRef.current, { backgroundColor: "white" });
-      tl3.from("#imageRef1", { scale: 2, transformOrigin: "left", duration: 1 });
-      tl3.to("#imageRef2", {
-        scale: 1,
-        transformOrigin: "left",
-        duration: 1,
-        marginLeft: "80px",
-        opacity: 1,
-        translateY: 0,
-      });
-    },
-    { scope: headerRef.current }
-  );
-
-  // const createObserver = (options: {}) => {
-  //   const intObserver = new IntersectionObserver((entries) => {
-  //     entries.forEach((entry) => {
-  //       if (entry.isIntersecting) {
-  //         entry.target.classList.add("active");
-  //         console.log("active");
-  //       } else {
-  //         entry.target.classList.remove("active");
-  //         console.log("inactive");
-  //       }
-  //     });
-  //   }, options);
-
-  //   return intObserver;
-  // };
-
-  // const observer = createObserver({
-  //   threshold: 0.8,
-  // });
-
-  // useEffect(() => {
-  //   const observedElement = [headerRef, card2Ref, card1Ref].map((ref) => ref.current);
-  //   if (observedElement) {
-  //     observedElement.forEach((elements) => {
-  //       if (elements) {
-  //         observer.observe(elements);
-  //       }
-  //     });
-  //   }
-
-  //   return () => {
-  //     observedElement.forEach((element) => {
-  //       observer.observe(element);
-  //     });
-  //   };
-  // }, [card1Ref, headerRef, card2Ref]);
-
-  const handleMouseOver = (id: string) => {
-    setIsActive(id);
-  };
-
-  const handleMouseLeave = () => {
-    setIsActive("");
-  };
-
   return (
-    <main className="bg-[#1e1e1e] relative -z-30 ">
-      <div className="">
-        {/**header section */}
-        <section
-          ref={headerRef}
-          className="flex flex-col items-center container mx-auto headerstyles"
+    <main className="bg-[#1e1e1e]">
+      {/* Header section */}
+      <section className="">
+        <Header>
+          <section className="flex flex-col justify-center item-center space-y-10">
+            <div className="flex justify-between flex-row gap-20">
+              <div
+                className={`${clashDisplayFont.className} text-[10rem] leading-none w-[55%] font-extrabold`}
+              >
+                <h1>DIGITIZE IDEAS</h1>
+              </div>
+              <div
+                className={`${clashDisplayFont.style} text-xl w-[45%] flex flex-col items-end justify-between`}
+              >
+                <p>
+                  The art of visual communication, creatively impacting the world around us—one good
+                  design at a time, design like you mean it!
+                </p>
+
+                <div className="flex w-full justify-around">
+                  <span className="">
+                    <StarIcon />
+                  </span>
+                  <span className="">
+                    <StarIcon />
+                  </span>
+                  <span className="">
+                    <StarIcon />
+                  </span>
+                </div>
+
+                <p>
+                  The art of visual communication, creatively impacting the world around us—one good
+                  design at a time, design like you mean it!
+                </p>
+              </div>
+            </div>
+            <div>
+              <div className="flex text-2xl">
+                <StyleButton name="GET STARTED" />
+              </div>
+            </div>
+          </section>
+        </Header>
+      </section>
+
+      {/* body section */}
+      <section className="mx-auto container">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20">
+          <Cards>
+            <h1>EXPLORE IDEAS</h1>
+            <p></p>
+            <Image src={Laptop} width={500} height={100} alt="laptop mockupp" />
+            <div className="flex justify-center">
+              <StyleButton name="EXPLORE" />
+            </div>
+          </Cards>
+          <Cards>
+            {" "}
+            <h1>DISCUSS IDEAS</h1>
+            <p></p>
+            <Image src={Laptop} width={500} height={100} alt="laptop mockupp" />
+            <div className="flex justify-center">
+              <StyleButton name="CHAT WITH US" />
+            </div>
+          </Cards>
+        </div>
+      </section>
+
+      {/**Scrolltrigger maquee section */}
+      <section>
+        <div
+          className={`flex flex-row text-nowrap items-center text-white text-6xl space-x-10 overflow-hidden py-[150px] font-bold ${clashDisplayFont.className}`}
         >
-          <Header>
-            <div ref={labelRef} className="flex">
-              <p className="flex bg-white/20 py-1 px-4 text-sm rounded-full backdrop-blur-[30px] text-white/60">
-                ✨ No 1 in consultancy services
-              </p>
-            </div>
-            <h1
-              ref={captionRef}
-              className="text-[lightgray] text-wrap text-6xl text-center textheader"
-            >
-              World class excellence <br />
-              in consultancy
-            </h1>
-            <p ref={textRef} className="flex text-center">
-              We make the greatest impact through collaboration with our clients, as our diverse,
-              global teams help organizations tackle the most urgent dynamic challenges
+          <span>
+            {" "}
+            <StarIcon />
+          </span>
+          <p>DISCUSS YOUR IDEAS</p>
+          <span>
+            <StarIcon />
+          </span>
+          <p>WE DIGITIZE YOUR IDEAS </p>
+          <span>
+            {" "}
+            <StarIcon />
+          </span>
+        </div>
+      </section>
+
+      {/**Our service section */}
+      <section>
+        <div className="flex justify-between text-white gap-20 mx-auto container">
+          <div className="w-[60%]">
+            <h2 className={`${clashDisplayFont.className} text-8xl font-bold`}>OUR SERVICES</h2>
+            <p>
+              Every one of us loves something different. So, explore the world through the lens of
+              our visual capabilities, and find what you love
             </p>
-            <div className="flex relative">
-              <button ref={btnRef} type="submit" className="buttonBtn flex">
-                <div className="iconbtn">
-                  <ArrowRight />
-                </div>
-                <div className="textbtn">Check out my story</div>
-              </button>
+          </div>
+          <div className="w-[30%] flex h-11 gap-6 flex-wrap">
+            <div className="flex ">
+              <div className="flex gap-4 border border-white px-4 py-2 rounded-full">
+                <span>
+                  <GlobeIcon />
+                </span>
+                <p>Design</p>
+              </div>
             </div>
-          </Header>
-        </section>
-
-        {/**Card section */}
-        <section className="pb-[100px] pt-[300px] container mx-auto ">
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-10">
-            <div ref={card1Ref} className="headerstyles">
-              <Cards
-                id="card1"
-                isActive={isActive === "card1"}
-                handleMouseLeave={handleMouseLeave}
-                handleMouseOver={handleMouseOver}
-              >
-                <div>
-                  <h2 className="text-4xl font-bold">Our portfolio</h2>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis sint
-                    dolorem magnam dolores eos. Sint voluptatum vero aut totam exercitationem
-                    asperiores laborum sunt. Reiciendis sit voluptatem amet quia nobis unde.
-                  </p>
-                </div>
-                <div className="relative">
-                  <Image
-                    src={Demo}
-                    width={400}
-                    height={300}
-                    alt="Demo pics"
-                    className="rounded-[20px] h-auto"
-                  />
-                  <div className="">
-                    <Settings isActive={isActive === "card1"} />
-                  </div>
-                </div>
-                <div className="flex relative">
-                  <button type="submit" className="buttonBtn flex">
-                    <div className="iconbtn">
-                      <ArrowRight />
-                    </div>
-                    <div className="textbtn">Read more</div>
-                  </button>
-                </div>
-              </Cards>
+            <div className="flex ">
+              <div className="flex gap-4 border border-white px-4 py-2 rounded-full">
+                <span>
+                  <GlobeIcon />
+                </span>
+                <p>Development</p>
+              </div>
             </div>
-
-            <div ref={card2Ref} className="headerstyles">
-              <Cards
-                id="card2"
-                isActive={isActive === "card2"}
-                handleMouseLeave={handleMouseLeave}
-                handleMouseOver={handleMouseOver}
-              >
-                <div>
-                  <h2 className="text-4xl font-bold">Professional services</h2>
-                </div>
-                <div>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis sint
-                    dolorem magnam dolores eos. Sint voluptatum vero aut totam exercitationem
-                    asperiores laborum sunt. Reiciendis sit voluptatem amet quia nobis unde.
-                  </p>
-                </div>
-                <div className="relative flex justify-end ">
-                  <Image
-                    src={Demo}
-                    width={400}
-                    height={300}
-                    alt="Demo pics"
-                    className="rounded-[20px] h-auto"
-                  />
-                  <div className="relative">
-                    <Banny isActive={isActive === "card2"} />
-                  </div>
-                </div>
-                <div className="flex justify-center">
-                  <div className="flex flex-row w-[57%]">
-                    <button type="submit" className="buttonBtn flex">
-                      <div className="iconbtn">
-                        <ArrowRight />
-                      </div>
-                      <div className="textbtn">Check out my story</div>
-                    </button>
-                  </div>
-                </div>
-              </Cards>
+            <div className="flex ">
+              <div className="flex gap-4 border border-white px-4 py-2 rounded-full">
+                <span>
+                  <GlobeIcon />
+                </span>
+                <p>Digital marketing</p>
+              </div>
+            </div>
+            <div className="flex ">
+              <div className="flex gap-4 border border-white px-4 py-2 rounded-full">
+                <span>
+                  <GlobeIcon />
+                </span>
+                <p>SEO</p>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/**promo section */}
-        {/* <section className="py-[100px] text-white space-y-[200px]">
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20 justify-center items-center">
-            <div className="space-y-10">
-              <div className="flex">
-                <p className="flex  bg-white/20 py-1 px-4 text-sm rounded-full backdrop-blur-[30px] text-white/60">
-                  ✨ No 1 in consultancy services
-                </p>
-              </div>
-              <h2 className="text-4xl font-bold">Our portfolio</h2>
-              <p>
-                We make the greatest impact through collaboration with our clients, as our diverse,
-                global teams help organizations tackle the most urgent dynamic challenges
-              </p>
-            </div>
+      {/**Service list section */}
+      <section className="mx-auto container py-[150px]">
+        <ul className="listwrapper ">
+          <li className="flex list relative justify-between items-center border-y border-gray-700/50 py-12 px-8">
             <div>
-              <Image
-                src={Demo}
-                width={600}
-                height={300}
-                alt="Demo pics"
-                className="rounded-[20px] h-[500px] object-cover"
-              />
-            </div>
-          </div>
-          <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20 justify-center items-center">
-            <div className="space-y-10 order-1">
-              <div className="flex">
-                <p className="flex  bg-white/20 py-1 px-4 text-sm rounded-full backdrop-blur-[30px] text-white/60">
-                  ✨ No 1 in consultancy services
-                </p>
+              <div className="slide-up flex flex-col">
+                <span
+                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 text-6xl`}
+                >
+                  UIUX DESIGN
+                </span>
+                <span
+                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 text-6xl`}
+                >
+                  UIUX DESIGN
+                </span>
               </div>
-              <h2 className="text-4xl font-bold">Our portfolio</h2>
-              <p>
-                We make the greatest impact through collaboration with our clients, as our diverse,
-                global teams help organizations tackle the most urgent dynamic challenges
-              </p>
             </div>
-            <div>
-              <Image
-                src={Demo}
-                width={600}
-                height={300}
-                alt="Demo pics"
-                className="rounded-[20px] h-[500px] object-cover"
-              />
-            </div>
-          </div>
-        </section> */}
 
-        <section ref={cardSectionRef} className="py-[100px]">
-          <div className="w-full flex flex-col justify-center items-center">
-            <div id="cardRef1">
-              <Image
-                src={Laptop}
-                alt="a front view laptop mockup pics"
-                className="h-auto"
-                width={1200}
-              />
+            <div className="slide-image absolute bottom-0 right-[10%] overflow-hidden">
+              <div className="">
+                <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
+              </div>
             </div>
-            <div
-              className="flex flex-col justify-center items-center gap-6 text-center mt-4"
-              id="cardRef2"
-            >
-              <h2 className="text-4xl font-bold">Expert analysis</h2>
-              <p className="w-1/2">
-                We analyze business growth and provide strategic solutions for tailored for your
-                business
-              </p>
-            </div>
-          </div>
-        </section>
 
-        {/**full section */}
-        {/* <section className="py-[100px] space-y-10 text-white bg-[#f9f9f9] " ref={imgSectionRef}>
-          <div className="container mx-auto overflow-hidden">
-            <div className="flex flex-col space-y-10 justify-center items-center text-center text-black">
-              <div className="flex ">
-                <p className="flex  bg-white/20 border-slate-300 border py-1 px-4 text-sm rounded-full backdrop-blur-[30px] text-black/60">
-                  ✨ No 1 in consultancy services
-                </p>
+            <div className="relative flex justify-center items-center">
+              <div className="arrow">
+                <LinkArrow fill="fill-gray-900" />
               </div>
-              <h2 className="text-4xl font-bold w-[50%] flex justify-center">
-                Unlocking Growth Strategies for Business Excellence
-              </h2>
-            </div>
-            <div className="flex flex-row mt-10 overflow-hidden relative">
-              <div id="imageRef1" className="flex w-1/2">
-                <Image
-                  src={Demo}
-                  width={1400}
-                  height={500}
-                  alt="Demo pics"
-                  className="rounded-[20px] object-cover flex h-auto"
-                />
-              </div>
-              <div id="imageRef2" className="flex w-1/2 opacity-0 ">
-                <p className="w-full text-black ">
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati commodi modi
-                  omnis accusamus nemo beatae pariatur blanditiis dolorem, quaerat praesentium et
-                  totam tempore. Sapiente, ullam quo eos et eligendi ad?
-                </p>
-              </div>
-            </div>
-          </div>
-        </section> */}
-
-        {/**Image section */}
-        <section className="py-[100px] space-y-[200px] text-white mx-auto container">
-          {/**Image 1 */}
-          <section className="grid grid-cols-griddy gap-10">
-            <div>
               <div>
-                <h2>Hello allez voius</h2>
-                <p>
-                  {" "}
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam debitis
-                  inventore deleniti nesciunt ipsam, cumque enim
-                </p>
+                {" "}
+                <LinkArrow fill="fill-gray-600" />
               </div>
-              <Image src={Demo} alt="Demo pics" className="rounded-[20px]" />
             </div>
+          </li>
+          <li className="flex list relative justify-between items-center border-b border-gray-700/50 py-12 px-8">
             <div>
-              <Image src={Demo} alt="Demo pics" className="rounded-[20px]" />
+              <div className="slide-up flex flex-col">
+                <span
+                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 text-6xl`}
+                >
+                  DEVELOPMENT
+                </span>
+                <span
+                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 text-6xl`}
+                >
+                  DEVELOPMENT
+                </span>
+              </div>
             </div>
-          </section>
 
-          {/**Image 2 */}
-          <section className="grid grid-cols-reversegriddy gap-10">
-            <div className="">
-              <div>
-                <h2>Hello allez voius</h2>
-                <p>
-                  {" "}
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam debitis
-                  inventore deleniti nesciunt ipsam, cumque enim
-                </p>
+            <div className="slide-image absolute bottom-0 right-[10%] overflow-hidden">
+              <div className="">
+                <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
               </div>
-              <Image src={Demo} alt="Demo pics" className="rounded-[20px]" />
             </div>
-            <div className=" ">
-              <Image src={Demo} alt="Demo pics" className="rounded-[20px]" />
-            </div>
-          </section>
 
-          {/**Image 3 */}
-          <section className="grid grid-cols-griddy gap-10">
-            <div>
-              <div>
-                <h2>Hello allez voius</h2>
-                <p>
-                  {" "}
-                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam debitis
-                  inventore deleniti nesciunt ipsam, cumque enim
-                </p>
+            <div className="relative flex justify-center items-center">
+              <div className="arrow">
+                <LinkArrow fill="fill-gray-900" />
               </div>
-              <Image src={Demo} alt="Demo pics" className="rounded-[20px]" />
+              <div>
+                {" "}
+                <LinkArrow fill="fill-gray-600" />
+              </div>
             </div>
+          </li>
+          <li className="flex list relative justify-between items-center border-b border-gray-700/50 py-12 px-8">
             <div>
-              <Image src={Demo} alt="Demo pics" className="rounded-[20px]" />
+              <div className="slide-up flex flex-col">
+                <span
+                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 text-6xl`}
+                >
+                  SEO
+                </span>
+                <span
+                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 text-6xl`}
+                >
+                  SEO
+                </span>
+              </div>
             </div>
-          </section>
-        </section>
-      </div>
+
+            <div className="slide-image absolute bottom-0 right-[10%] overflow-hidden">
+              <div className="">
+                <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
+              </div>
+            </div>
+
+            <div className="relative flex justify-center items-center">
+              <div className="arrow">
+                <LinkArrow fill="fill-gray-900" />
+              </div>
+              <div>
+                {" "}
+                <LinkArrow fill="fill-gray-600" />
+              </div>
+            </div>
+          </li>
+          <li className="flex list relative justify-between items-center border-b border-gray-700/50 py-12 px-8">
+            <div>
+              <div className="slide-up flex flex-col">
+                <span
+                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 text-6xl`}
+                >
+                  MARKETING
+                </span>
+                <span
+                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 text-6xl`}
+                >
+                  MARKETING
+                </span>
+              </div>
+            </div>
+
+            <div className="slide-image absolute bottom-0 right-[10%] overflow-hidden">
+              <div className="">
+                <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
+              </div>
+            </div>
+
+            <div className="relative flex justify-center items-center">
+              <div className="arrow">
+                <LinkArrow fill="fill-gray-900" />
+              </div>
+              <div>
+                {" "}
+                <LinkArrow fill="fill-gray-600" />
+              </div>
+            </div>
+          </li>
+        </ul>
+      </section>
     </main>
   );
 }
