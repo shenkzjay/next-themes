@@ -148,23 +148,40 @@ border color: rgba(161, 174, 229, .22) */
 
 .cardeffect {
   position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(45, 45, 45, 0.75);
+  perspective: 800px;
+  transform: rotateX(var(--xRotation)) rotateY(var(--yRotation));
+  transition: all 0.5s ease-out;
+}
+
+.cardeffect::before {
+  position: absolute;
+  content: "";
+  top: var(--y);
+  left: var(--x);
+  width: calc(200% - 4px);
+  height: calc(200% - 4px);
+  transform: translate(-50%, -50%);
+  background: radial-gradient(ellipse, rgb(128, 0, 128, 0.85) 0%, transparent 50%);
+  backdrop-filter: blur(30px) contrast(20px);
+  opacity: 0;
+  z-index: -99;
+}
+
+.cardeffect:hover::before {
+  opacity: 1;
 }
 
 .cardeffect::after {
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
   content: "";
   position: absolute;
-  top: -0.1rem;
-  left: 0;
+  inset: 4px;
+  background: rgba(45, 45, 45, 0.75);
   z-index: -99;
-  background: radial-gradient(
-      ellipse,
-      rgba(255, 255, 255, 0.8) 0%,
-      rgba(255, 255, 255, 0.1) 40%,
-      transparent 50.5%
-    )
-    50% 0% / 50vmin 0.5vmin no-repeat;
+  border-radius: 20px;
 }
 
 .settings.active {
@@ -547,6 +564,141 @@ border color: rgba(161, 174, 229, .22) */
   justify-content: center;
   clip-path: inset(0);
   transition: all 0.7s ease-in-out;
+}
+
+.text-wrapper {
+  position: relative;
+  height: 70dvh;
+}
+
+.designtext {
+  font-size: clamp(1rem, 20vw, 10rem);
+  clip-path: inset(0 0 45%);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.buildtext {
+  font-size: clamp(1rem, 20vw, 10rem);
+  clip-path: inset(0 0 40%);
+  /* position: relative; */
+  position: absolute;
+  top: 11vh;
+  left: 0;
+}
+
+.testtext {
+  font-size: clamp(1rem, 20vw, 10rem);
+  clip-path: inset(0 0 35%);
+  /* position: relative; */
+  position: absolute;
+  top: 24vh;
+  left: 0;
+}
+
+.deploytext {
+  font-size: clamp(1rem, 20vw, 10rem);
+  /* clip-path: inset(0 0 30%); */
+  position: absolute;
+  top: 38.5vh;
+  left: 0;
+}
+
+/* .imageoverlay div:nth-child(2) {
+  transform: translateY(100%);
+}
+
+.imageoverlay:hover div:nth-child(2) {
+  transform: translateY(0);
+}
+
+.imageoverlay div:first-child img {
+  transform: scale(1.2);
+}
+
+.imageoverlay:hover div:first-child img {
+  transform: scale(1);
+}
+
+.textoverlay div:first-child {
+  transform: translateY(100%);
+  transition: all 2s;
+}
+
+.imageoverlay:hover .textoverlay div:first-child {
+  transform: translateY(0%);
+} */
+
+.textoverlay > div:nth-child(1) {
+  transform: translateY(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.textoverlay:hover > div:nth-child(1) {
+  transform: translateY(0%);
+  transition: all 0.3s ease-in-out;
+}
+
+.imageoverlay div:first-child img {
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.imageoverlay:hover div:first-child img {
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+.text-slide-up > div:first-child div {
+  transform: translateY(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.imageoverlay:hover .text-slide-up > div:first-child div {
+  transform: translateY(0%);
+  transition: all 0.3s ease-in-out;
+}
+
+.text-slide-up > div:nth-child(2) div {
+  transform: translateY(100%);
+  transition: all 0.3s ease-in-out;
+}
+
+.imageoverlay:hover .text-slide-up > div:nth-child(2) div {
+  transform: translateY(0%);
+  transition: all 0.3s ease-in-out;
+}
+
+.imageoverlay .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: inset(100% 0 0);
+  transition: all 0.3s ease-in-out;
+  transform-origin: bottom;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 12vmin;
+  width: 12vmin;
+}
+
+.imageoverlay:hover .arrow {
+  background-color: lightgreen;
+  justify-content: center;
+  clip-path: inset(0);
+  transition: all 0.7s ease-in-out;
+}
+
+.imageoverlay .arrow .linkarrow {
+  transform: translateZ(0%);
+  transition: all 0.5s ease-in-out;
+}
+
+.imageoverlay:hover .arrow .linkarrow {
+  transform: translateZ(10%);
+  transition: all 0.5s ease-in-out;
 }
 
 @keyframes slidetext {

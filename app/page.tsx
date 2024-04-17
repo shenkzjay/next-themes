@@ -17,6 +17,7 @@ import { PrimaryButton, StyleButton } from "@/components/buttons/primarybtn";
 import { StarIcon } from "@/components/svgs/star";
 import { GlobeIcon } from "@/components/svgs/globe";
 import { LinkArrow } from "@/components/svgs/linkarrow";
+import { object } from "zod";
 
 const clashDisplayFont = localFont({
   src: [
@@ -98,7 +99,7 @@ export default function App() {
 
       {/* body section */}
       <section className="mx-auto container">
-        <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20">
+        <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20 ">
           <Cards>
             <h1>EXPLORE IDEAS</h1>
             <p></p>
@@ -188,7 +189,7 @@ export default function App() {
       </section>
 
       {/**Service list section */}
-      <section className="mx-auto container py-[150px]">
+      <section className="mx-auto container pb-[150px]">
         <ul className="listwrapper ">
           <li className="flex list relative justify-between items-center border-y border-gray-700/50 py-12 px-8">
             <div>
@@ -319,6 +320,217 @@ export default function App() {
             </div>
           </li>
         </ul>
+      </section>
+
+      {/**bold title section */}
+      <section className="pb-[150px]">
+        <div className="mx-auto container ">
+          <div className="text-wrapper   w-full flex justify-center items-center text-white ">
+            <span
+              data-buildtext="DESIGN"
+              className={`${clashDisplayFont.className} w-full flex justify-center designtext  font-extrabold`}
+            >
+              DESIGN
+            </span>
+
+            <span
+              data-buildtext="BUILD"
+              className={`${clashDisplayFont.className} buildtext w-full flex justify-center  font-extrabold`}
+            >
+              BUILD
+            </span>
+
+            <span
+              data-buildtext="TEST"
+              className={`${clashDisplayFont.className} testtext w-full flex justify-center  font-extrabold`}
+            >
+              TEST
+            </span>
+            <span
+              data-buildtext="DEPLOY"
+              className={`${clashDisplayFont.className} deploytext w-full flex justify-center  font-extrabold`}
+            >
+              DEPLOY
+            </span>
+          </div>
+        </div>
+      </section>
+
+      {/**image grid section */}
+      <section className="pb-[150px]">
+        <div className="mx-auto container gap-10">
+          <ul className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-10">
+            <li className="flex relative overflow-hidden imageoverlay">
+              <div className="flex flex-row rounded-tl-[99px] overflow-hidden">
+                <Image
+                  src={Demo}
+                  width={500}
+                  height={300}
+                  alt="demo image"
+                  className="object-cover w-full"
+                />
+              </div>
+              <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
+                <div className="absolute top-0 left-0 w-full h-full rounded-tl-[99px] bg-black/50"></div>
+                <div className="absolute flex flex-col w-full justify-between h-full">
+                  <div className="relative flex justify-center items-center">
+                    <div className="arrow">
+                      <LinkArrow fill="fill-gray-900" />
+                    </div>
+                  </div>
+                  <div className="text-white text-slide-up p-10">
+                    <div className=" overflow-hidden ">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        2022
+                      </div>
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        The greatest
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li className="flex relative overflow-hidden imageoverlay h-[50vh] md:col-span-2">
+              <div className="flex flex-row rounded-bl-[99px] overflow-hidden w-full">
+                <Image
+                  src={Demo}
+                  width={500}
+                  height={300}
+                  alt="demo image"
+                  className="object-cover w-full"
+                />
+              </div>
+              <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
+                <div className="absolute top-0 left-0 w-full h-full rounded-bl-[99px] bg-black/50"></div>
+                <div className="absolute flex flex-col w-full justify-between h-full">
+                  <div className="relative flex justify-center items-center">
+                    <div className="arrow">
+                      <LinkArrow fill="fill-gray-900" />
+                    </div>
+                  </div>
+                  <div className="text-white text-slide-up p-10">
+                    <div className=" overflow-hidden ">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        2022
+                      </div>
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        The Best
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li className="flex relative overflow-hidden imageoverlay h-[50vh]">
+              <div className="flex flex-row rounded-l-[99px] overflow-hidden">
+                <Image
+                  src={Demo}
+                  width={500}
+                  height={300}
+                  alt="demo image"
+                  className="object-cover w-full"
+                />
+              </div>
+              <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
+                <div className="absolute top-0 left-0 w-full h-full rounded-l-[99px] bg-black/50"></div>
+                <div className="absolute flex flex-col w-full justify-between h-full">
+                  <div className="relative flex justify-center items-center">
+                    <div className="arrow">
+                      <LinkArrow fill="fill-gray-900" />
+                    </div>
+                  </div>
+                  <div className="text-white text-slide-up p-10">
+                    <div className=" overflow-hidden ">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        2023
+                      </div>
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        The Exploit
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li className="flex relative overflow-hidden imageoverlay h-[50vh]">
+              <div className="flex flex-row rounded-b-[99px] overflow-hidden">
+                <Image
+                  src={Demo}
+                  width={500}
+                  height={300}
+                  alt="demo image"
+                  className="object-cover w-full"
+                />
+              </div>
+              <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
+                <div className="absolute top-0 left-0 w-full h-full rounded-b-[99px] bg-black/50"></div>
+                <div className="absolute flex flex-col w-full justify-between h-full">
+                  <div className="relative flex justify-center items-center">
+                    <div className="arrow">
+                      <LinkArrow fill="fill-gray-900" />
+                    </div>
+                  </div>
+                  <div className="text-white text-slide-up p-10">
+                    <div className=" overflow-hidden ">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        2024
+                      </div>
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        The Unknown
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li className="flex relative overflow-hidden imageoverlay h-[50vh]">
+              <div className="flex flex-row rounded-tl-[99px] rounded-br-[99px] overflow-hidden">
+                <Image
+                  src={Demo}
+                  width={500}
+                  height={300}
+                  alt="demo image"
+                  className="object-cover w-full"
+                />
+              </div>
+              <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
+                <div className="absolute top-0 left-0 w-full h-full rounded-tl-[99px] rounded-br-[99px] bg-black/50"></div>
+                <div className="absolute flex flex-col w-full justify-between h-full">
+                  <div className="relative flex justify-center items-center">
+                    <div className="arrow">
+                      <LinkArrow fill="fill-gray-900" />
+                    </div>
+                  </div>
+                  <div className="text-white text-slide-up p-10">
+                    <div className=" overflow-hidden ">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        2025
+                      </div>
+                    </div>
+                    <div className="overflow-hidden">
+                      <div className={`${clashDisplayFont.className} font-semibold text-5xl`}>
+                        The Domino Effect
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </section>
     </main>
   );
