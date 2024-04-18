@@ -1,6 +1,6 @@
 export const ArrowRight = () => {
   return (
-    <div className="text-white arrowRight">
+    <div className="arrowRight">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="37"

@@ -13,7 +13,7 @@ import { useGSAP } from "@gsap/react";
 import { ArrowRight } from "@/components/icons/arrowright";
 import Laptop from "../public/images/laptop.png";
 import localFont from "next/font/local";
-import { PrimaryButton, StyleButton } from "@/components/buttons/primarybtn";
+import { PrimaryButton, StyleButton, TertiaryBtn } from "@/components/buttons/primarybtn";
 import { StarIcon } from "@/components/svgs/star";
 import { GlobeIcon } from "@/components/svgs/globe";
 import { LinkArrow } from "@/components/svgs/linkarrow";
@@ -58,7 +58,7 @@ export default function App() {
           <section className="flex flex-col justify-center item-center space-y-10">
             <div className="flex justify-between flex-row gap-20">
               <div
-                className={`${clashDisplayFont.className} text-[10rem] leading-none w-[55%] font-extrabold`}
+                className={`${clashDisplayFont.className} [font-size:_clamp(2.5rem,9vw,10rem)] leading-none w-[55%] font-extrabold`}
               >
                 <h1>DIGITIZE IDEAS</h1>
               </div>
@@ -89,7 +89,7 @@ export default function App() {
               </div>
             </div>
             <div>
-              <div className="flex text-2xl">
+              <div className="flex text-2xl text-white z-50">
                 <StyleButton name="GET STARTED" />
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function App() {
             <h1>EXPLORE IDEAS</h1>
             <p></p>
             <Image src={Laptop} width={500} height={100} alt="laptop mockupp" />
-            <div className="flex justify-center">
+            <div className="flex justify-center z-50">
               <StyleButton name="EXPLORE" />
             </div>
           </Cards>
@@ -113,7 +113,7 @@ export default function App() {
             <h1>DISCUSS IDEAS</h1>
             <p></p>
             <Image src={Laptop} width={500} height={100} alt="laptop mockupp" />
-            <div className="flex justify-center">
+            <div className="flex justify-center z-50">
               <StyleButton name="CHAT WITH US" />
             </div>
           </Cards>
@@ -141,7 +141,7 @@ export default function App() {
         </div>
       </section>
 
-      {/**Our service section */}
+      {/**Our service section cards */}
       <section>
         <div className="flex justify-between text-white gap-20 mx-auto container">
           <div className="w-[60%]">
@@ -532,6 +532,48 @@ export default function App() {
           </ul>
         </div>
       </section>
+
+      {/**contact card section */}
+      <section className="pb-[150px]">
+        <div className="bg-[linear-gradient(#fc8cfc,#D88DFC)] mx-auto container rounded-b-[100px] p-16">
+          <div className=" flex flex-col justify-center gap-20 ">
+            <div className="flex flex-row justify-center items-center">
+              <span className="flex w-1/3 h-1 bg-black"></span>
+              <span className="flex w-1/3 justify-center items-center">
+                <StarIcon />
+                <StarIcon />
+                <StarIcon />
+              </span>
+              <span className="flex w-1/3 h-1 bg-black"></span>
+            </div>
+            <div className="w-full flex justify-center">
+              <h2
+                className={`${clashDisplayFont.className} w-2/3 text-center [font-size:_clamp(2rem,5vw,4.5rem)] font-extrabold uppercase flex justify-center leading-none`}
+              >
+                Tell us about your idea
+              </h2>
+            </div>
+
+            <div className="flex justify-center">
+              <div className="text-black text-2xl ">
+                <TertiaryBtn name="GET IN TOUCH " />
+              </div>
+            </div>
+          </div>
+          <div></div>
+          <div></div>
+        </div>
+      </section>
+
+      {/**footer section */}
+
+      <footer className="text-white mx-auto container pb-[150px]">
+        <section className="flex flex-row justify-between uppercase">
+          <div>© Copyright 2024</div>
+          <div>✨ A landing page theme project ✨</div>
+          <div>more exciting projects →</div>
+        </section>
+      </footer>
     </main>
   );
 }

@@ -163,7 +163,7 @@ border color: rgba(161, 174, 229, .22) */
   width: calc(200% - 4px);
   height: calc(200% - 4px);
   transform: translate(-50%, -50%);
-  background: radial-gradient(ellipse, rgb(128, 0, 128, 0.85) 0%, transparent 50%);
+  background: radial-gradient(ellipse, rgba(255, 2, 255, 0.9) 0%, transparent 50%);
   backdrop-filter: blur(30px) contrast(20px);
   opacity: 0;
   z-index: -99;
@@ -295,6 +295,62 @@ border color: rgba(161, 174, 229, .22) */
 
 .buttonBtn:hover::before {
   width: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+}
+
+.buttonBtn > p {
+  z-index: 99999;
+}
+
+/** ----------------------------------------------**/
+
+.tertiaryBtn {
+  --width: 100%;
+  height: 10vh;
+  position: relative;
+  width: calc(var(--width) + 1.5rem + 2rem);
+  padding: 1rem 2rem;
+  border-radius: 9999px;
+  display: flex;
+
+  /* border: 1px solid white; */
+}
+
+.tertiaryBtn::before {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  content: "";
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  backdrop-filter: blur(20px);
+  width: 70px;
+  height: 100%;
+  border-radius: 9999px;
+  border: 1px solid black;
+  transition: width 0.5s ease-in-out;
+
+  animation: intro 0.5s linear alternate;
+}
+
+.tertiaryBtn:hover::before {
+  width: 100%;
+  background-color: black;
+  transition: all 0.5s ease-out;
+}
+
+.tertiaryBtn:hover .arrowRight {
+  width: 100%;
+  color: #d88dfc;
+  transition: all 0.5s ease-in-out;
+}
+
+.tertiaryBtn:hover > p {
+  width: 100%;
+  color: #d88dfc;
+  transition: all 0.5s ease-in-out;
 }
 
 .arrowRight {
@@ -560,7 +616,7 @@ border color: rgba(161, 174, 229, .22) */
 }
 
 .list:hover .arrow {
-  background-color: lightgreen;
+  background-color: rgba(255, 0, 255);
   justify-content: center;
   clip-path: inset(0);
   transition: all 0.7s ease-in-out;
@@ -685,7 +741,7 @@ border color: rgba(161, 174, 229, .22) */
 }
 
 .imageoverlay:hover .arrow {
-  background-color: lightgreen;
+  background-color: rgba(255, 0, 255);
   justify-content: center;
   clip-path: inset(0);
   transition: all 0.7s ease-in-out;
