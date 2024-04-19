@@ -159,6 +159,7 @@ border color: rgba(161, 174, 229, .22) */
   perspective: 1000px;
   transform: rotateX(var(--xRotation)) rotateY(var(--yRotation));
   transition: transform 0.5s ease-out;
+  touch-action: none;
 }
 
 .cardeffect::before {
@@ -173,6 +174,7 @@ border color: rgba(161, 174, 229, .22) */
   backdrop-filter: blur(30px) contrast(20px);
   opacity: 0;
   z-index: -99;
+  touch-action: none;
 }
 
 .cardeffect:hover::before {
