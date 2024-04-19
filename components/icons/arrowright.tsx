@@ -7,6 +7,8 @@ export const ArrowRight = () => {
         height="24"
         viewBox="0 0 37 24"
         fill="none"
+        role="graphics-document"
+        aria-label="svg-star-icon"
       >
         <path
           d="M27.4301 5.92969L33.5001 11.9997L27.4301 18.0697"

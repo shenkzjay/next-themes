@@ -4,22 +4,15 @@ import { Cards } from "@/components/cards";
 import { Header } from "@/components/header";
 import Demo from "../public/images/max1.jpeg";
 import Image from "next/image";
-import { Settings } from "@/components/icons/settings";
-import { useEffect, useRef, useState } from "react";
-import { Banny } from "@/components/icons/banny";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react";
-import { ArrowRight } from "@/components/icons/arrowright";
 import Laptop from "../public/images/laptop.png";
 import localFont from "next/font/local";
-import { PrimaryButton, StyleButton, TertiaryBtn } from "@/components/buttons/primarybtn";
+import { StyleButton, TertiaryBtn } from "@/components/buttons/primarybtn";
 import { StarIcon } from "@/components/svgs/star";
 import { GlobeIcon } from "@/components/svgs/globe";
 import { LinkArrow } from "@/components/svgs/linkarrow";
-import { object } from "zod";
+import { DigitNav } from "@/components/nav/digitnav";
 
-const clashDisplayFont = localFont({
+export const clashDisplayFont = localFont({
   src: [
     {
       path: "./fonts/ClashDisplay-Bold.woff",
@@ -55,22 +48,25 @@ export default function App() {
       {/* Header section */}
       <section className="">
         <Header>
-          <section className="flex flex-col justify-center item-center space-y-10">
-            <div className="flex justify-between flex-row gap-20">
+          <section className="flex flex-col space-y-10">
+            <section className="pt-10">
+              <DigitNav />
+            </section>
+            <div className="flex justify-between flex-col md:flex-row gap-20 pt-28">
               <div
-                className={`${clashDisplayFont.className} [font-size:_clamp(2.5rem,9vw,10rem)] leading-none w-[55%] font-extrabold`}
+                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,10vw,10rem)] leading-none md:w-[55%] font-extrabold`}
               >
                 <h1>DIGITIZE IDEAS</h1>
               </div>
               <div
-                className={`${clashDisplayFont.style} text-xl w-[45%] flex flex-col items-end justify-between`}
+                className={`${clashDisplayFont.style} text-xl md:w-[45%] flex flex-col items-end justify-between`}
               >
                 <p>
                   The art of visual communication, creatively impacting the world around us—one good
                   design at a time, design like you mean it!
                 </p>
 
-                <div className="flex w-full justify-around">
+                <div className="flex w-full justify-center">
                   <span className="">
                     <StarIcon />
                   </span>
@@ -89,7 +85,7 @@ export default function App() {
               </div>
             </div>
             <div>
-              <div className="flex text-2xl text-white z-50">
+              <div className="flex text-2xl text-white z-10 relative">
                 <StyleButton name="GET STARTED" />
               </div>
             </div>
@@ -98,12 +94,19 @@ export default function App() {
       </section>
 
       {/* body section */}
-      <section className="mx-auto container">
+      <section className="md:mx-auto md:container pt-[150px] md:pt-0 mx-6">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20 ">
           <Cards>
             <h1>EXPLORE IDEAS</h1>
             <p></p>
-            <Image src={Laptop} width={500} height={100} alt="laptop mockupp" />
+            <Image
+              src={Laptop}
+              width={500}
+              height={100}
+              alt="laptop mockup"
+              role="graphics-document"
+              aria-label="laptop mockup screen displaying blanks"
+            />
             <div className="flex justify-center z-50">
               <StyleButton name="EXPLORE" />
             </div>
@@ -112,7 +115,14 @@ export default function App() {
             {" "}
             <h1>DISCUSS IDEAS</h1>
             <p></p>
-            <Image src={Laptop} width={500} height={100} alt="laptop mockupp" />
+            <Image
+              src={Laptop}
+              width={500}
+              height={100}
+              alt="laptop mockupp"
+              role="graphics-document"
+              aria-label="laptop mockup screen displaying blanks"
+            />
             <div className="flex justify-center z-50">
               <StyleButton name="CHAT WITH US" />
             </div>
@@ -143,41 +153,45 @@ export default function App() {
 
       {/**Our service section cards */}
       <section>
-        <div className="flex justify-between text-white gap-20 mx-auto container">
-          <div className="w-[60%]">
-            <h2 className={`${clashDisplayFont.className} text-8xl font-bold`}>OUR SERVICES</h2>
+        <div className="flex md:flex-row flex-col justify-between text-white gap-20 md:mx-auto md:container mx-6">
+          <div className="md:w-[60%]">
+            <h2
+              className={`${clashDisplayFont.className} [font-size:_clamp(2rem,10vw,6rem)] font-bold`}
+            >
+              OUR SERVICES
+            </h2>
             <p>
               Every one of us loves something different. So, explore the world through the lens of
               our visual capabilities, and find what you love
             </p>
           </div>
-          <div className="w-[30%] flex h-11 gap-6 flex-wrap">
-            <div className="flex ">
-              <div className="flex gap-4 border border-white px-4 py-2 rounded-full">
-                <span>
+          <div className="md:w-[30%] flex h-11 gap-6 flex-wrap">
+            <div className="flex flex-wrap text-gray-400">
+              <div className="flex gap-4 border border-gray-500 px-4 py-2 rounded-full">
+                <span className="">
                   <GlobeIcon />
                 </span>
                 <p>Design</p>
               </div>
             </div>
-            <div className="flex ">
-              <div className="flex gap-4 border border-white px-4 py-2 rounded-full">
+            <div className="flex text-gray-400 ">
+              <div className="flex gap-4 border border-gray-500 px-4 py-2 rounded-full">
                 <span>
                   <GlobeIcon />
                 </span>
                 <p>Development</p>
               </div>
             </div>
-            <div className="flex ">
-              <div className="flex gap-4 border border-white px-4 py-2 rounded-full">
+            <div className="flex text-gray-400 ">
+              <div className="flex gap-4 border border-gray-500 px-4 py-2 rounded-full">
                 <span>
                   <GlobeIcon />
                 </span>
                 <p>Digital marketing</p>
               </div>
             </div>
-            <div className="flex ">
-              <div className="flex gap-4 border border-white px-4 py-2 rounded-full">
+            <div className="flex text-gray-400">
+              <div className="flex gap-4 border border-gray-500 px-4 py-2 rounded-full">
                 <span>
                   <GlobeIcon />
                 </span>
@@ -189,31 +203,31 @@ export default function App() {
       </section>
 
       {/**Service list section */}
-      <section className="mx-auto container pb-[150px]">
+      <section className="mx-auto container py-[150px]">
         <ul className="listwrapper ">
           <li className="flex list relative justify-between items-center border-y border-gray-700/50 py-12 px-8">
             <div>
               <div className="slide-up flex flex-col">
                 <span
-                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 text-6xl`}
+                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   UIUX DESIGN
                 </span>
                 <span
-                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 text-6xl`}
+                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   UIUX DESIGN
                 </span>
               </div>
             </div>
 
-            <div className="slide-image absolute bottom-0 right-[10%] overflow-hidden">
+            <div className="hidden md:flex slide-image absolute bottom-0 right-[10%] overflow-hidden">
               <div className="">
                 <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
               </div>
             </div>
 
-            <div className="relative flex justify-center items-center">
+            <div className="hidden md:flex relative justify-center items-center">
               <div className="arrow">
                 <LinkArrow fill="fill-gray-900" />
               </div>
@@ -227,25 +241,25 @@ export default function App() {
             <div>
               <div className="slide-up flex flex-col">
                 <span
-                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 text-6xl`}
+                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   DEVELOPMENT
                 </span>
                 <span
-                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 text-6xl`}
+                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   DEVELOPMENT
                 </span>
               </div>
             </div>
 
-            <div className="slide-image absolute bottom-0 right-[10%] overflow-hidden">
+            <div className="hidden md:flex slide-image absolute bottom-0 right-[10%] overflow-hidden">
               <div className="">
                 <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
               </div>
             </div>
 
-            <div className="relative flex justify-center items-center">
+            <div className="hidden md:flex relative justify-center items-center">
               <div className="arrow">
                 <LinkArrow fill="fill-gray-900" />
               </div>
@@ -259,25 +273,25 @@ export default function App() {
             <div>
               <div className="slide-up flex flex-col">
                 <span
-                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 text-6xl`}
+                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   SEO
                 </span>
                 <span
-                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 text-6xl`}
+                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   SEO
                 </span>
               </div>
             </div>
 
-            <div className="slide-image absolute bottom-0 right-[10%] overflow-hidden">
+            <div className="slide-image hidden md:flex  absolute bottom-0 right-[10%] overflow-hidden">
               <div className="">
                 <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
               </div>
             </div>
 
-            <div className="relative flex justify-center items-center">
+            <div className="relative hidden md:flex  justify-center items-center">
               <div className="arrow">
                 <LinkArrow fill="fill-gray-900" />
               </div>
@@ -291,25 +305,25 @@ export default function App() {
             <div>
               <div className="slide-up flex flex-col">
                 <span
-                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 text-6xl`}
+                  className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   MARKETING
                 </span>
                 <span
-                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 text-6xl`}
+                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   MARKETING
                 </span>
               </div>
             </div>
 
-            <div className="slide-image absolute bottom-0 right-[10%] overflow-hidden">
+            <div className="hidden md:flex slide-image absolute bottom-0 right-[10%] overflow-hidden">
               <div className="">
                 <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
               </div>
             </div>
 
-            <div className="relative flex justify-center items-center">
+            <div className="relative hidden md:flex justify-center items-center">
               <div className="arrow">
                 <LinkArrow fill="fill-gray-900" />
               </div>
@@ -325,30 +339,30 @@ export default function App() {
       {/**bold title section */}
       <section className="pb-[150px]">
         <div className="mx-auto container ">
-          <div className="text-wrapper   w-full flex justify-center items-center text-white ">
+          <div className="md:h-[70dvh] h-[30dvh] relative  w-full flex justify-center items-center text-white ">
             <span
               data-buildtext="DESIGN"
-              className={`${clashDisplayFont.className} w-full flex justify-center designtext  font-extrabold`}
+              className={`${clashDisplayFont.className} absolute top-0 left-0 w-full flex justify-center  [font-size:_clamp(1rem,20vw,10rem)] [clip-path:_inset(0_0_45%)] font-extrabold`}
             >
               DESIGN
             </span>
 
             <span
               data-buildtext="BUILD"
-              className={`${clashDisplayFont.className} buildtext w-full flex justify-center  font-extrabold`}
+              className={`${clashDisplayFont.className}  absolute md:top-[11vh] top-[2.6rem] left-0 w-full flex   [font-size:_clamp(1rem,20vw,10rem)] [clip-path:_inset(0_0_40%)] justify-center  font-extrabold`}
             >
               BUILD
             </span>
 
             <span
               data-buildtext="TEST"
-              className={`${clashDisplayFont.className} testtext w-full flex justify-center  font-extrabold`}
+              className={`${clashDisplayFont.className} absolute md:top-[24vh] top-[5.6rem] left-0 w-full flex [font-size:_clamp(1rem,20vw,10rem)] [clip-path:_inset(0_0_35%)] justify-center  font-extrabold`}
             >
               TEST
             </span>
             <span
               data-buildtext="DEPLOY"
-              className={`${clashDisplayFont.className} deploytext w-full flex justify-center  font-extrabold`}
+              className={`${clashDisplayFont.className} absolute md:top-[38.5vh] top-[9rem] left-0 w-full flex [font-size:_clamp(1rem,20vw,10rem)] justify-center  font-extrabold`}
             >
               DEPLOY
             </span>
@@ -358,16 +372,18 @@ export default function App() {
 
       {/**image grid section */}
       <section className="pb-[150px]">
-        <div className="mx-auto container gap-10">
+        <div className="md:mx-auto md:container gap-10 mx-6">
           <ul className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-10">
-            <li className="flex relative overflow-hidden imageoverlay">
+            <li className="flex relative overflow-hidden h-[50vh] imageoverlay">
               <div className="flex flex-row rounded-tl-[99px] overflow-hidden">
                 <Image
                   src={Demo}
                   width={500}
                   height={300}
                   alt="demo image"
-                  className="object-cover w-full"
+                  className="object-cover w-full h-full"
+                  aria-label="laptop mockup screen displaying blanks"
+                  role="graphics-document"
                 />
               </div>
               <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
@@ -395,13 +411,14 @@ export default function App() {
             </li>
 
             <li className="flex relative overflow-hidden imageoverlay h-[50vh] md:col-span-2">
-              <div className="flex flex-row rounded-bl-[99px] overflow-hidden w-full">
+              <div className="flex flex-row rounded-bl-[99px] overflow-hidden w-full h-full">
                 <Image
                   src={Demo}
                   width={500}
                   height={300}
                   alt="demo image"
-                  className="object-cover w-full"
+                  className="object-cover w-full h-full"
+                  aria-label="laptop mockup screen displaying blanks"
                 />
               </div>
               <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
@@ -435,7 +452,8 @@ export default function App() {
                   width={500}
                   height={300}
                   alt="demo image"
-                  className="object-cover w-full"
+                  className="object-cover w-full h-full"
+                  aria-label="laptop mockup screen displaying blanks"
                 />
               </div>
               <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
@@ -469,7 +487,8 @@ export default function App() {
                   width={500}
                   height={300}
                   alt="demo image"
-                  className="object-cover w-full"
+                  className="object-cover w-full h-full"
+                  aria-label="laptop mockup screen displaying blanks"
                 />
               </div>
               <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
@@ -503,7 +522,8 @@ export default function App() {
                   width={500}
                   height={300}
                   alt="demo image"
-                  className="object-cover w-full"
+                  className="object-cover w-full h-full"
+                  aria-label="laptop mockup screen displaying blanks"
                 />
               </div>
               <div className="flex textoverlay absolute top-0 flex-col justify-between h-full w-full rounded-tl-[99px]">
@@ -535,7 +555,7 @@ export default function App() {
 
       {/**contact card section */}
       <section className="pb-[150px]">
-        <div className="bg-[linear-gradient(#fc8cfc,#D88DFC)] mx-auto container rounded-b-[100px] p-16">
+        <div className="bg-[linear-gradient(#fc8cfc,#D88DFC)] md:mx-auto md:container rounded-b-[100px] md:p-16 mx-6 p-10">
           <div className=" flex flex-col justify-center gap-20 ">
             <div className="flex flex-row justify-center items-center">
               <span className="flex w-1/3 h-1 bg-black"></span>
@@ -548,14 +568,14 @@ export default function App() {
             </div>
             <div className="w-full flex justify-center">
               <h2
-                className={`${clashDisplayFont.className} w-2/3 text-center [font-size:_clamp(2rem,5vw,4.5rem)] font-extrabold uppercase flex justify-center leading-none`}
+                className={`${clashDisplayFont.className} w-2/3 text-center [font-size:_clamp(2rem,5vw,5rem)] font-extrabold uppercase flex justify-center leading-none`}
               >
                 Tell us about your idea
               </h2>
             </div>
 
             <div className="flex justify-center">
-              <div className="text-black text-2xl ">
+              <div className="text-black [font-size:_clamp(1rem,5vw,3rem)] ">
                 <TertiaryBtn name="GET IN TOUCH " />
               </div>
             </div>
@@ -567,8 +587,8 @@ export default function App() {
 
       {/**footer section */}
 
-      <footer className="text-white mx-auto container pb-[150px]">
-        <section className="flex flex-row justify-between uppercase">
+      <footer className="text-white md:mx-auto md:container pb-[150px] mx-6">
+        <section className="flex md:flex-row flex-col justify-between uppercase space-y-4 md:space-y-0">
           <div>© Copyright 2024</div>
           <div>✨ A landing page theme project ✨</div>
           <div>more exciting projects →</div>

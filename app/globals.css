@@ -20,6 +20,12 @@ body {
   z-index: -1;
 }
 
+@media screen and (max-width: 980px) {
+  .wrapper_style {
+    background-size: 1000px 1000px;
+  }
+}
+
 .box {
   width: 300px;
   height: 80px;
@@ -150,9 +156,9 @@ border color: rgba(161, 174, 229, .22) */
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(45, 45, 45, 0.75);
-  perspective: 800px;
+  perspective: 1000px;
   transform: rotateX(var(--xRotation)) rotateY(var(--yRotation));
-  transition: all 0.5s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .cardeffect::before {
@@ -267,7 +273,7 @@ border color: rgba(161, 174, 229, .22) */
 
 .buttonBtn {
   --width: 100%;
-  height: 10vh;
+  height: 70px;
   position: relative;
   width: calc(var(--width) + 1.5rem + 2rem);
   padding: 1rem 2rem;
@@ -307,7 +313,7 @@ border color: rgba(161, 174, 229, .22) */
 
 .tertiaryBtn {
   --width: 100%;
-  height: 10vh;
+  height: 70px;
   position: relative;
   width: calc(var(--width) + 1.5rem + 2rem);
   padding: 1rem 2rem;
@@ -338,19 +344,19 @@ border color: rgba(161, 174, 229, .22) */
 .tertiaryBtn:hover::before {
   width: 100%;
   background-color: black;
-  transition: all 0.5s ease-out;
+  transition: background-color 0.5s ease-out, width 0.5s ease-out;
 }
 
 .tertiaryBtn:hover .arrowRight {
   width: 100%;
   color: #d88dfc;
-  transition: all 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
 }
 
 .tertiaryBtn:hover > p {
   width: 100%;
   color: #d88dfc;
-  transition: all 0.5s ease-in-out;
+  transition: color 0.5s ease-in-out;
 }
 
 .arrowRight {
@@ -572,7 +578,7 @@ border color: rgba(161, 174, 229, .22) */
 .list div:first-child span:nth-child(1) {
   transform: translateY(200%);
   position: absolute;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
   color: white;
 }
 
@@ -582,13 +588,13 @@ border color: rgba(161, 174, 229, .22) */
 
 .list div:first-child span:nth-child(2) {
   transform: translateY(0%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .list:hover div:first-child span:nth-child(2) {
   width: 40vw;
   transform: translateY(-100%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .list .slide-image {
@@ -596,19 +602,19 @@ border color: rgba(161, 174, 229, .22) */
 
 .list .slide-image div {
   transform: translateY(200%);
-  transition: all 0.5s ease-out;
+  transition: transform 0.5s ease-out;
 }
 
 .list:hover .slide-image div {
   transform: translateY(0%);
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 .list .arrow {
   display: flex;
   align-items: center;
   justify-content: center;
   clip-path: inset(100% 0 0);
-  transition: all 0.7s ease-in-out;
+  transition: clip-path 0.7s ease-in-out;
   transform-origin: bottom;
   position: absolute;
   height: 6.5cqw;
@@ -619,46 +625,7 @@ border color: rgba(161, 174, 229, .22) */
   background-color: rgba(255, 0, 255);
   justify-content: center;
   clip-path: inset(0);
-  transition: all 0.7s ease-in-out;
-}
-
-.text-wrapper {
-  position: relative;
-  height: 70dvh;
-}
-
-.designtext {
-  font-size: clamp(1rem, 20vw, 10rem);
-  clip-path: inset(0 0 45%);
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.buildtext {
-  font-size: clamp(1rem, 20vw, 10rem);
-  clip-path: inset(0 0 40%);
-  /* position: relative; */
-  position: absolute;
-  top: 11vh;
-  left: 0;
-}
-
-.testtext {
-  font-size: clamp(1rem, 20vw, 10rem);
-  clip-path: inset(0 0 35%);
-  /* position: relative; */
-  position: absolute;
-  top: 24vh;
-  left: 0;
-}
-
-.deploytext {
-  font-size: clamp(1rem, 20vw, 10rem);
-  /* clip-path: inset(0 0 30%); */
-  position: absolute;
-  top: 38.5vh;
-  left: 0;
+  transition: clip-path 0.7s ease-in-out;
 }
 
 /* .imageoverlay div:nth-child(2) {
@@ -685,45 +652,49 @@ border color: rgba(161, 174, 229, .22) */
 .imageoverlay:hover .textoverlay div:first-child {
   transform: translateY(0%);
 } */
+svg {
+  width: 100%;
+  height: auto;
+}
 
 .textoverlay > div:nth-child(1) {
   transform: translateY(100%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .textoverlay:hover > div:nth-child(1) {
   transform: translateY(0%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .imageoverlay div:first-child img {
   transform: scale(1.2);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .imageoverlay:hover div:first-child img {
   transform: scale(1);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .text-slide-up > div:first-child div {
   transform: translateY(100%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .imageoverlay:hover .text-slide-up > div:first-child div {
   transform: translateY(0%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .text-slide-up > div:nth-child(2) div {
   transform: translateY(100%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .imageoverlay:hover .text-slide-up > div:nth-child(2) div {
   transform: translateY(0%);
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .imageoverlay .arrow {
@@ -731,7 +702,7 @@ border color: rgba(161, 174, 229, .22) */
   align-items: center;
   justify-content: center;
   clip-path: inset(100% 0 0);
-  transition: all 0.3s ease-in-out;
+  transition: clip-path 0.3s ease-in-out;
   transform-origin: bottom;
   position: absolute;
   top: 0;
@@ -744,17 +715,17 @@ border color: rgba(161, 174, 229, .22) */
   background-color: rgba(255, 0, 255);
   justify-content: center;
   clip-path: inset(0);
-  transition: all 0.7s ease-in-out;
+  transition: clip-path 0.7s ease-in-out;
 }
 
 .imageoverlay .arrow .linkarrow {
   transform: translateZ(0%);
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 .imageoverlay:hover .arrow .linkarrow {
   transform: translateZ(10%);
-  transition: all 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
 }
 
 @keyframes slidetext {
