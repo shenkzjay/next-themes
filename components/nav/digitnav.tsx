@@ -1,5 +1,37 @@
-import { clashDisplayFont } from "@/app/page";
+"use client";
+
 import { StyleButton } from "../buttons/primarybtn";
+import localFont from "next/font/local";
+
+const clashDisplayFont = localFont({
+  src: [
+    {
+      path: "../../app/fonts/ClashDisplay-Bold.woff",
+      weight: "800",
+    },
+    {
+      path: "../../app/fonts/ClashDisplay-Extralight.woff",
+      weight: "300",
+    },
+    {
+      path: "../../app/fonts/ClashDisplay-Light.woff",
+      weight: "400",
+    },
+    {
+      path: "../../app/fonts/ClashDisplay-Medium.woff",
+      weight: "600",
+    },
+    {
+      path: "../../app/fonts/ClashDisplay-Regular.woff",
+      weight: "500",
+    },
+    {
+      path: "../../app/fonts/ClashDisplay-Semibold.woff",
+      weight: "700",
+    },
+  ],
+  display: "swap",
+});
 
 export const DigitNav = () => {
   return (
@@ -96,7 +128,6 @@ export const DigitNav = () => {
         </li>
         <li
           aria-label="left-back-arrow-navigation"
-          aria-expanded="false"
           className="md:hidden flex absolute md:relative right-10 border border-white md:border-0 rounded-full"
         >
           <a className="md:hidden flex px-6 py-2 md:py-0 md:px-0  text-white z" href="#menuclose">

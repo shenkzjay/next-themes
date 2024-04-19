@@ -12,7 +12,7 @@ import { GlobeIcon } from "@/components/svgs/globe";
 import { LinkArrow } from "@/components/svgs/linkarrow";
 import { DigitNav } from "@/components/nav/digitnav";
 
-export const clashDisplayFont = localFont({
+const clashDisplayFont = localFont({
   src: [
     {
       path: "./fonts/ClashDisplay-Bold.woff",
@@ -588,7 +588,7 @@ export default function App() {
       {/**footer section */}
 
       <footer className="text-white md:mx-auto md:container pb-[150px] mx-6">
-        <section className="flex md:flex-row flex-col justify-between uppercase space-y-4 md:space-y-0">
+        <section className="flex md:flex-row flex-col justify-between uppercase space-y-4 md:space--0">
           <div>© Copyright 2024</div>
           <div>✨ A landing page theme project ✨</div>
           <div>more exciting projects →</div>
