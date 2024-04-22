@@ -56,7 +56,7 @@ export default function App() {
                 <NavOverlay />
               </div>
             </section>
-            <div className="flex justify-between flex-col md:flex-row gap-20 pt-28">
+            <div className="flex justify-between flex-col md:flex-row gap-20 pt-20">
               <div
                 className={`${clashDisplayFont.className} [font-size:_clamp(4rem,10vw,10rem)] leading-none md:w-[55%] font-extrabold`}
               >
