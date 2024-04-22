@@ -8,6 +8,7 @@ export const Cards = ({ children }: CardProps) => {
   const cardRef = useRef<HTMLElement | null>(null);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    e.preventDefault();
     const cards = e.currentTarget.closest("article");
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
@@ -47,7 +48,7 @@ export const Cards = ({ children }: CardProps) => {
       ref={cardRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`bg-white/5 p-10 font-bold rounded-[20px] backdrop-blur-[30px] text-white/60 grid grid-cols-subgrid gap-10 cardeffect 
+      className={`bg-white/5 p-10 font-bold rounded-[20px] backdrop-blur-[30px] text-white/60 grid grid-cols-subgrid gap-10 cardeffect [touch-action:_none] 
       }`}
     >
       {children}
