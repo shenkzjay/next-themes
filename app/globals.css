@@ -162,14 +162,14 @@ border color: rgba(161, 174, 229, .22) */
   touch-action: none;
 }
 
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
   .cardeffect,
   .cardeffect::after,
   .cardeffect::before,
   .cardeffect:hover::before {
     pointer-events: none;
   }
-}
+} */
 
 .cardeffect::before {
   position: absolute;
