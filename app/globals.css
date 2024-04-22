@@ -732,24 +732,27 @@ svg {
   left: 0;
   top: 0;
   width: 100%;
-  height: 1em;
-  background: red;
-  animation: grow-progress auto linear;
+  height: auto;
+  background-color: rgba(128, 0, 128, 0.5);
+  padding: 1rem 0;
+  backdrop-filter: blur(20px);
+  animation: grow-progress 1s linear, leave 1s linear;
   animation-timeline: scroll();
-  animation-range: 2% 100%;
+  animation-range: 1.5% 100%;
   opacity: 0;
+  transition: animation-range 1s linear;
 
-  z-index: 9999;
+  z-index: 09;
 }
 
 @keyframes grow-progress {
   from {
-    transform: scaleX(0);
     opacity: 1;
+    transition: opacity 1s ease-in;
   }
   to {
-    transform: scaleX(1);
     opacity: 1;
+    transition: opacity 1s ease-in;
   }
 }
 
