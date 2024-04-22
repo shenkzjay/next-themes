@@ -46,7 +46,7 @@ export const Cards = ({ children }: CardProps) => {
   return (
     <article
       ref={cardRef}
-      onMouseMove={handleMouseMove}
+      onPointerMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={`bg-white/5 p-10 font-bold rounded-[20px] backdrop-blur-[30px] text-white/60 grid grid-cols-subgrid gap-10 cardeffect [touch-action:_none] 
       }`}
