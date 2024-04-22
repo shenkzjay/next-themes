@@ -11,6 +11,7 @@ import { StarIcon } from "@/components/svgs/star";
 import { GlobeIcon } from "@/components/svgs/globe";
 import { LinkArrow } from "@/components/svgs/linkarrow";
 import { DigitNav } from "@/components/nav/digitnav";
+import { NavOverlay } from "@/components/nav/navoverlay";
 
 const clashDisplayFont = localFont({
   src: [
@@ -46,11 +47,14 @@ export default function App() {
   return (
     <main className="bg-[#1e1e1e]">
       {/* Header section */}
-      <section className="">
+      <section className="scroller">
         <Header>
-          <section className="flex flex-col space-y-10">
+          <section className="flex flex-col space-y-10 ">
             <section className="pt-10">
               <DigitNav />
+              <div className="delay_display">
+                <NavOverlay />
+              </div>
             </section>
             <div className="flex justify-between flex-col md:flex-row gap-20 pt-28">
               <div
@@ -206,7 +210,7 @@ export default function App() {
       <section className="mx-auto container py-[150px]">
         <ul className="listwrapper ">
           <li className="flex list relative justify-between items-center border-y border-gray-700/50 py-12 px-8">
-            <div>
+            <div className="w-full">
               <div className="slide-up flex flex-col">
                 <span
                   className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
@@ -214,7 +218,7 @@ export default function App() {
                   UIUX DESIGN
                 </span>
                 <span
-                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
+                  className={`${clashDisplayFont.className} secondspan w-full text-nowrap font-semibold text-gray-600 [font-size:_clamp(2rem,9vw,4rem)]`}
                 >
                   UIUX DESIGN
                 </span>
@@ -238,7 +242,7 @@ export default function App() {
             </div>
           </li>
           <li className="flex list relative justify-between items-center border-b border-gray-700/50 py-12 px-8">
-            <div>
+            <div className="w-full">
               <div className="slide-up flex flex-col">
                 <span
                   className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
@@ -246,7 +250,7 @@ export default function App() {
                   DEVELOPMENT
                 </span>
                 <span
-                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
+                  className={`${clashDisplayFont.className} secondspan w-full font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   DEVELOPMENT
                 </span>
@@ -270,7 +274,7 @@ export default function App() {
             </div>
           </li>
           <li className="flex list relative justify-between items-center border-b border-gray-700/50 py-12 px-8">
-            <div>
+            <div className="w-full">
               <div className="slide-up flex flex-col">
                 <span
                   className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
@@ -278,7 +282,7 @@ export default function App() {
                   SEO
                 </span>
                 <span
-                  className={`${clashDisplayFont.className} secondspan font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
+                  className={`${clashDisplayFont.className} secondspan w-full font-semibold text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
                 >
                   SEO
                 </span>
@@ -302,7 +306,7 @@ export default function App() {
             </div>
           </li>
           <li className="flex list relative justify-between items-center border-b border-gray-700/50 py-12 px-8">
-            <div>
+            <div className="w-full">
               <div className="slide-up flex flex-col">
                 <span
                   className={`${clashDisplayFont.className} w-full font-bold text-nowrap text-gray-600 [font-size:_clamp(2rem,10vw,4rem)]`}
@@ -555,7 +559,7 @@ export default function App() {
 
       {/**contact card section */}
       <section className="pb-[150px]">
-        <div className="bg-[linear-gradient(#fc8cfc,#D88DFC)] md:mx-auto md:container rounded-b-[100px] md:p-16 mx-6 p-10">
+        <div className="bg-[linear-gradient(#fc8cfc,#D88DFC)] md:mx-auto md:container rounded-b-[100px] md:p-16 p-10">
           <div className=" flex flex-col justify-center gap-20 ">
             <div className="flex flex-row justify-center items-center">
               <span className="flex w-1/3 h-1 bg-black"></span>
@@ -575,7 +579,7 @@ export default function App() {
             </div>
 
             <div className="flex justify-center">
-              <div className="text-black [font-size:_clamp(1rem,5vw,3rem)] ">
+              <div className="text-black [font-size:_clamp(1rem,4vw,2rem)] ">
                 <TertiaryBtn name="GET IN TOUCH " />
               </div>
             </div>
