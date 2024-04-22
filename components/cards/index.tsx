@@ -28,8 +28,10 @@ export const Cards = ({ children }: CardProps) => {
         cards.style.setProperty("--yRotation", yRotation + "deg");
       }
 
-      cards.style.setProperty("--x", x + "px");
-      cards.style.setProperty("--y", y + "px");
+      if (!isMobile) {
+        cards.style.setProperty("--x", x + "px");
+        cards.style.setProperty("--y", y + "px");
+      }
     }
   };
 
