@@ -35,7 +35,7 @@ const clashDisplayFont = localFont({
 export const NavOverlay = () => {
   return (
     <nav
-      className="flex md:justify-between md:flex-row flex-col relative mx-auto container"
+      className="flex md:justify-between md:flex-row flex-col relative mx-auto container z"
       role="navigation"
       aria-label="Main-menu"
     >

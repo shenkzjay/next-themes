@@ -742,7 +742,7 @@ svg {
   opacity: 0;
   transition: animation-range 1s linear;
 
-  z-index: 09;
+  z-index: 9;
 }
 
 @keyframes grow-progress {

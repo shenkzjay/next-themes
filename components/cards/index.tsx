@@ -9,6 +9,7 @@ export const Cards = ({ children }: CardProps) => {
 
   const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     const cards = e.currentTarget.closest("article");
+    const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
     if (cards) {
       let x = e.pageX - cards.offsetLeft;
@@ -22,8 +23,10 @@ export const Cards = ({ children }: CardProps) => {
 
       console.table({ xRotation, yRotation });
 
-      cards.style.setProperty("--xRotation", xRotation + "deg");
-      cards.style.setProperty("--yRotation", yRotation + "deg");
+      if (!isMobile) {
+        cards.style.setProperty("--xRotation", xRotation + "deg");
+        cards.style.setProperty("--yRotation", yRotation + "deg");
+      }
 
       cards.style.setProperty("--x", x + "px");
       cards.style.setProperty("--y", y + "px");
