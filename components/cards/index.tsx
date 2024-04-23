@@ -12,7 +12,7 @@ export const Cards = ({ children }: CardProps) => {
     const cards = e.currentTarget.closest("article");
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
 
-    if (cards) {
+    if (cards && !isMobile) {
       let x = e.pageX - cards.offsetLeft;
       let y = e.pageY - cards.offsetTop;
 
@@ -24,15 +24,11 @@ export const Cards = ({ children }: CardProps) => {
 
       console.table({ xRotation, yRotation });
 
-      if (!isMobile) {
-        cards.style.setProperty("--xRotation", xRotation + "deg");
-        cards.style.setProperty("--yRotation", yRotation + "deg");
-      }
+      cards.style.setProperty("--xRotation", xRotation + "deg");
+      cards.style.setProperty("--yRotation", yRotation + "deg");
 
-      if (!isMobile) {
-        cards.style.setProperty("--x", x + "px");
-        cards.style.setProperty("--y", y + "px");
-      }
+      cards.style.setProperty("--x", x + "px");
+      cards.style.setProperty("--y", y + "px");
     }
   };
 
