@@ -58,9 +58,13 @@ export default function App() {
             </section>
             <div className="flex justify-between flex-col md:flex-row gap-20 pt-20">
               <div
-                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,10vw,10rem)] leading-none md:w-[55%] font-extrabold`}
+                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,7vw,10rem)] leading-tight  md:w-[55%] font-extrabold`}
               >
-                <h1>DIGITIZE IDEAS</h1>
+                <span>
+                  <span className={`${clashDisplayFont.className} font-extralight`}>FROM</span>{" "}
+                  VISION <br />{" "}
+                  <span className={`${clashDisplayFont.className} font-extralight`}>TO</span> PIXELS
+                </span>
               </div>
               <div
                 className={`${clashDisplayFont.style} text-xl md:w-[45%] flex flex-col items-end justify-between`}
