@@ -4,7 +4,7 @@ interface HeaderProps {
 
 export const Header = ({ children }: HeaderProps) => {
   return (
-    <header className="wrapper_style [background-size:_cover]">
+    <header className="wrapper_style [background-size:_cover] pb-24 md:pb-0">
       <main className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] md:mx-auto md:container mx-6">
         <div className="h-[100vh] text-white space-y-6">{children}</div>
       </main>

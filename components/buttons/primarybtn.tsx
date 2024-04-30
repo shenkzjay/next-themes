@@ -24,7 +24,7 @@ export const StyleButton = ({ name, ...props }: PrimaryButtonProps) => {
         <span className="pl-4">
           <ArrowRight />
         </span>
-        <p className="pl-4 font-semibold ">{name}</p>
+        <p className="pl-4 font-semibold [font-size:_clamp(.8rem,3vw,1rem)]">{name}</p>
       </button>
     </div>
   );
@@ -37,7 +37,7 @@ export const TertiaryBtn = ({ name, ...props }: PrimaryButtonProps) => {
         <span className="pl-4">
           <ArrowRight />
         </span>
-        <p className="pl-4 font-semibold z-50">{name}</p>
+        <p className="pl-4 font-semibold z-50 ">{name}</p>
       </button>
     </div>
   );

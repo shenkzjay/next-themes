@@ -751,7 +751,7 @@ svg {
   backdrop-filter: blur(20px);
   animation: grow-progress 1s linear, leave 1s linear;
   animation-timeline: scroll();
-  animation-range: 1.5% 100%;
+  animation-range: 10% 100%;
   opacity: 0;
   transition: animation-range 1s linear;
 

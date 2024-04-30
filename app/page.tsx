@@ -52,13 +52,13 @@ export default function App() {
           <section className="flex flex-col space-y-10 ">
             <section className="pt-10">
               <DigitNav />
-              <div className="delay_display">
+              {/* <div className="delay_display">
                 <NavOverlay />
-              </div>
+              </div> */}
             </section>
-            <div className="flex justify-between flex-col md:flex-row gap-20 pt-20">
+            <div className="flex justify-between flex-col md:flex-row gap-20 pt-12 md:pt-24">
               <div
-                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,7vw,10rem)] leading-tight  md:w-[55%] font-extrabold`}
+                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,7vw,10rem)] md:leading-tight leading-none  md:w-[55%] font-extrabold`}
               >
                 <span>
                   <span className={`${clashDisplayFont.className} font-extralight`}>FROM</span>{" "}
