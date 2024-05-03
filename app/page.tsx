@@ -18,11 +18,6 @@ import SEO from "@/public/images/seo.png";
 import DEV from "@/public/images/dev.png";
 import ADS from "@/public/images/ads.png";
 import Chat from "@/public/images/chat us.png";
-import Pat1 from "@/public/images/pat1.png";
-import Pat2 from "@/public/images/pat2.png";
-import Pat3 from "@/public/images/pat3.png";
-import Pat4 from "@/public/images/pat4.png";
-import Pat5 from "@/public/images/pat5.png";
 
 const clashDisplayFont = localFont({
   src: [
@@ -67,9 +62,9 @@ export default function App() {
                 <NavOverlay />
               </div> */}
             </section>
-            <div className="flex justify-between flex-col  md:flex-row gap-20 pt-12 md:pt-0">
+            <div className="flex justify-between flex-col  md:flex-row gap-20 pt-24 md:pt-0">
               <div
-                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,7vw,10rem)] md:leading-tight leading-none  md:w-[55%] font-extrabold pt-32`}
+                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,7vw,10rem)] md:leading-tight leading-none  md:w-[55%] font-extrabold md:pt-32`}
               >
                 <span>
                   <span className={`${clashDisplayFont.className} font-extralight`}>FROM</span>{" "}
@@ -114,7 +109,7 @@ export default function App() {
       </section>
 
       {/* body section */}
-      <section className="md:mx-auto md:container pt-[150px] md:pt-0 mx-6">
+      <section className="md:mx-auto md:container  md:pt-0 mx-6">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20 ">
           <Cards>
             <h1 className="[font-size:_clamp(1rem,5vw,2rem)]">EXPLORE OUR PIXELS</h1>
