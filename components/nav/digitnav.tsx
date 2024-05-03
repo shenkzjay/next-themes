@@ -43,7 +43,17 @@ export const DigitNav = () => {
       aria-label="Main-menu"
     >
       <div className="flex justify-between" aria-labelledby="logo">
-        <div className="flex"> LOGO</div>
+        <div className="flex flex-row font-semibold h-full gap-1">
+          <span className="flex flex-col justify-between items-center ">
+            <span className="flex w-2 h-6 border-2 border-white rounded-[40px]"></span>
+            <span className="flex h-5 w-1 bg-white rounded-full"></span>
+          </span>
+          <span className="flex flex-col leading-none">
+            <span className="flex">THE</span>
+            <span className="flex">BOOLEAN</span>
+            <span className="flex">DESIGN</span>
+          </span>
+        </div>
         <a
           className="flex flex-col space-y-1 md:hidden"
           href="#menu"

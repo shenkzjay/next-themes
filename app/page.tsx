@@ -12,6 +12,17 @@ import { GlobeIcon } from "@/components/svgs/globe";
 import { LinkArrow } from "@/components/svgs/linkarrow";
 import { DigitNav } from "@/components/nav/digitnav";
 import { NavOverlay } from "@/components/nav/navoverlay";
+import Explore from "@/public/images/explore.png";
+import UI from "@/public/images/ui.png";
+import SEO from "@/public/images/seo.png";
+import DEV from "@/public/images/dev.png";
+import ADS from "@/public/images/ads.png";
+import Chat from "@/public/images/chat us.png";
+import Pat1 from "@/public/images/pat1.png";
+import Pat2 from "@/public/images/pat2.png";
+import Pat3 from "@/public/images/pat3.png";
+import Pat4 from "@/public/images/pat4.png";
+import Pat5 from "@/public/images/pat5.png";
 
 const clashDisplayFont = localFont({
   src: [
@@ -49,27 +60,33 @@ export default function App() {
       {/* Header section */}
       <section className="scroller">
         <Header>
-          <section className="flex flex-col space-y-10 ">
+          <section className="flex flex-col space-y-10 md:space-y-0 h-full ">
             <section className="pt-10">
               <DigitNav />
               {/* <div className="delay_display">
                 <NavOverlay />
               </div> */}
             </section>
-            <div className="flex justify-between flex-col md:flex-row gap-20 pt-12 md:pt-24">
+            <div className="flex justify-between flex-col  md:flex-row gap-20 pt-12 md:pt-0">
               <div
-                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,7vw,10rem)] md:leading-tight leading-none  md:w-[55%] font-extrabold`}
+                className={`${clashDisplayFont.className} [font-size:_clamp(4rem,7vw,10rem)] md:leading-tight leading-none  md:w-[55%] font-extrabold pt-32`}
               >
                 <span>
                   <span className={`${clashDisplayFont.className} font-extralight`}>FROM</span>{" "}
                   VISION <br />{" "}
                   <span className={`${clashDisplayFont.className} font-extralight`}>TO</span> PIXELS
                 </span>
+
+                <div>
+                  <div className="flex text-2xl text-white z-10 relative mt-10">
+                    <StyleButton name="GET STARTED" />
+                  </div>
+                </div>
               </div>
-              <div
-                className={`${clashDisplayFont.style} text-xl md:w-[45%] flex flex-col items-end justify-between`}
-              >
-                <p>
+
+              <div className={`${clashDisplayFont.style} text-xl md:w-[45%] h-[110vmin]`}>
+                <div className="bg-effect"></div>
+                {/* <p>
                   The art of visual communication, creatively impacting the world around us—one good
                   design at a time, design like you mean it!
                 </p>
@@ -89,12 +106,7 @@ export default function App() {
                 <p>
                   The art of visual communication, creatively impacting the world around us—one good
                   design at a time, design like you mean it!
-                </p>
-              </div>
-            </div>
-            <div>
-              <div className="flex text-2xl text-white z-10 relative">
-                <StyleButton name="GET STARTED" />
+                </p> */}
               </div>
             </div>
           </section>
@@ -105,34 +117,37 @@ export default function App() {
       <section className="md:mx-auto md:container pt-[150px] md:pt-0 mx-6">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20 ">
           <Cards>
-            <h1>EXPLORE IDEAS</h1>
-            <p></p>
-            <Image
-              src={Laptop}
-              width={500}
-              height={100}
-              alt="laptop mockup"
-              role="graphics-document"
-              aria-label="laptop mockup screen displaying blanks"
-            />
+            <h1 className="[font-size:_clamp(1rem,5vw,2rem)]">EXPLORE OUR PIXELS</h1>
+
+            <div className="imageghost flex justify-end mt-10">
+              <Image
+                src={Explore}
+                width={400}
+                height={100}
+                alt="laptop mockup"
+                role="graphics-document"
+                aria-label="laptop mockup screen displaying blanks"
+              />
+            </div>
             <div className="flex justify-center z-50">
               <StyleButton name="EXPLORE" />
             </div>
           </Cards>
           <Cards>
             {" "}
-            <h1>DISCUSS IDEAS</h1>
-            <p></p>
-            <Image
-              src={Laptop}
-              width={500}
-              height={100}
-              alt="laptop mockupp"
-              role="graphics-document"
-              aria-label="laptop mockup screen displaying blanks"
-            />
+            <h1 className="[font-size:_clamp(1rem,5vw,2rem)]">DISCUSS YOUR VISION</h1>
+            <div className="imageghost_two flex mt-10">
+              <Image
+                src={Chat}
+                width={400}
+                height={100}
+                alt="laptop mockupp"
+                role="graphics-document"
+                aria-label="laptop mockup screen displaying blanks"
+              />
+            </div>
             <div className="flex justify-center z-50">
-              <StyleButton name="CHAT WITH US" />
+              <StyleButton name="CHAT US" />
             </div>
           </Cards>
         </div>
@@ -161,7 +176,7 @@ export default function App() {
 
       {/**Our service section cards */}
       <section>
-        <div className="flex md:flex-row flex-col justify-between text-white gap-20 md:mx-auto md:container mx-6">
+        <div className="flex md:flex-row flex-col justify-between text-white gap-20 md:mx-auto md:container mx-6 mb-[150px] md:mb-0">
           <div className="md:w-[60%]">
             <h2
               className={`${clashDisplayFont.className} [font-size:_clamp(2rem,10vw,6rem)] font-bold`}
@@ -231,7 +246,7 @@ export default function App() {
 
             <div className="hidden md:flex slide-image absolute bottom-0 right-[10%] overflow-hidden">
               <div className="">
-                <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
+                <Image src={UI} height={300} width={400} alt="laptop mockup" className="" />
               </div>
             </div>
 
@@ -263,7 +278,7 @@ export default function App() {
 
             <div className="hidden md:flex slide-image absolute bottom-0 right-[10%] overflow-hidden">
               <div className="">
-                <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
+                <Image src={DEV} height={300} width={400} alt="laptop mockup" className="" />
               </div>
             </div>
 
@@ -295,7 +310,7 @@ export default function App() {
 
             <div className="slide-image hidden md:flex  absolute bottom-0 right-[10%] overflow-hidden">
               <div className="">
-                <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
+                <Image src={SEO} height={300} width={400} alt="laptop mockup" className="" />
               </div>
             </div>
 
@@ -327,7 +342,7 @@ export default function App() {
 
             <div className="hidden md:flex slide-image absolute bottom-0 right-[10%] overflow-hidden">
               <div className="">
-                <Image src={Laptop} height={300} width={400} alt="laptop mockup" className="" />
+                <Image src={ADS} height={300} width={400} alt="laptop mockup" className="" />
               </div>
             </div>
 
@@ -563,7 +578,7 @@ export default function App() {
 
       {/**contact card section */}
       <section className="pb-[150px]">
-        <div className="bg-[linear-gradient(#fc8cfc,#D88DFC)] md:mx-auto md:container rounded-b-[100px] md:p-16 p-10">
+        <div className="bg-[linear-gradient(#fc8cfc,#D88DFC)] md:mx-auto md:container md:rounded-b-[100px] rounded-b-[50px] md:p-16 p-6 mx-6">
           <div className=" flex flex-col justify-center gap-20 ">
             <div className="flex flex-row justify-center items-center">
               <span className="flex w-1/3 h-1 bg-black"></span>

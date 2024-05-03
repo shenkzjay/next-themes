@@ -44,7 +44,7 @@ export const Cards = ({ children }: CardProps) => {
       ref={cardRef}
       onPointerMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={`bg-white/5 p-10 font-bold rounded-[20px] backdrop-blur-[30px] text-white/60 grid grid-cols-subgrid gap-10 cardeffect pointer-events-none
+      className={`bg-white/5 p-10 font-bold rounded-[20px] backdrop-blur-[30px] text-white/60 grid grid-cols-subgrid gap-10 cardeffect relative pointer-events-none
       }`}
     >
       <div className="grid grid-cols-subgrid pointer-events-auto gap-10">{children}</div>

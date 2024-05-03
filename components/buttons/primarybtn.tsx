@@ -21,10 +21,10 @@ export const StyleButton = ({ name, ...props }: PrimaryButtonProps) => {
         {...props}
         className="buttonBtn flex flex-row items-center"
       >
-        <span className="pl-4">
+        <span className="pl-2">
           <ArrowRight />
         </span>
-        <p className="pl-4 font-semibold [font-size:_clamp(.8rem,3vw,1rem)]">{name}</p>
+        <p className="pl-4 font-semibold [font-size:_clamp(1rem,5vw,1.5rem)]">{name}</p>
       </button>
     </div>
   );
@@ -34,10 +34,10 @@ export const TertiaryBtn = ({ name, ...props }: PrimaryButtonProps) => {
   return (
     <div role="button" className="flex">
       <button role="button" {...props} className="tertiaryBtn flex flex-row items-center">
-        <span className="pl-4">
+        <span className="pl-2">
           <ArrowRight />
         </span>
-        <p className="pl-4 font-semibold z-50 ">{name}</p>
+        <p className="pl-4 font-semibold z-50 [font-size:_clamp(1rem,5vw,1.5rem)]">{name}</p>
       </button>
     </div>
   );
