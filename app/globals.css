@@ -828,32 +828,66 @@ svg {
     rgba(255, 255, 255, 0.15) 10%
   );
 
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   width: 100%;
   height: 100%;
   mix-blend-mode: soft-light;
-  animation: glassmve 4s linear infinite;
-  transition: background-position 1s ease-out;
+  /* animation: glassmve 4s linear infinite; */
 }
 
-.bg-effect::before {
+.pendulum {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* position: absolute;
+top: 5rem;
+left: 5rem;
+content: "";
+background: linear-gradient(red, red) 22% 35% / 10vmin 2vmin,
+  radial-gradient(ellipse, yellow 0%, transparent 50%) 0 45% / 40vmin 40vmin,
+  linear-gradient(white, white) 25% 0 / 2vmin 40vmin;
+background-repeat: no-repeat;
+width: 100%;
+height: 100%;
+backdrop-filter: blur(20px);
+animation: glassmove 1s ease-in-out infinite; */
+
+.pendulum::before {
   position: absolute;
-  top: 5rem;
-  left: 5rem;
+  top: 2rem;
+  left: 0rem;
   content: "";
-  background: linear-gradient(purple 10%, white 50%, purple 100%);
-  width: 70%;
-  height: 70%;
-  backdrop-filter: blur(60px);
-  transform: rotate(20deg);
+  background: linear-gradient(white 0%, transparent 50%) 50% 45% / 10vmin 5vmin,
+    radial-gradient(ellipse, white 0%, transparent 50%) 50% 70% / 55vmin 60vmin,
+    linear-gradient(#c4c4c4, #c4c4c4) 50% 0 / 2vmin 50vmin;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(30px);
+  animation: glassmove 3s ease-in-out infinite;
+  transform-origin: 50% 0;
+}
+
+.pendulum::after {
+  position: absolute;
+  top: 0rem;
+  left: 0rem;
+  content: "";
+  background: linear-gradient(white 0%, transparent 50%) 50% 0% / 10vmin 15vmin;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
 }
 
 @keyframes glassmove {
-  from {
-    background-position: 0;
+  0%,
+  100% {
+    transform: rotate(-45deg);
   }
-  to {
-    background-position: 50px;
+  50% {
+    transform: rotate(45deg);
   }
 }
 

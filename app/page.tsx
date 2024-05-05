@@ -80,7 +80,9 @@ export default function App() {
               </div>
 
               <div className={`${clashDisplayFont.style} text-xl md:w-[45%] h-[110vmin]`}>
-                <div className="bg-effect"></div>
+                <div className="bg-effect">
+                  <div className="pendulum"></div>
+                </div>
                 {/* <p>
                   The art of visual communication, creatively impacting the world around us—one good
                   design at a time, design like you mean it!
@@ -109,7 +111,7 @@ export default function App() {
       </section>
 
       {/* body section */}
-      <section className="md:mx-auto md:container  md:pt-0 mx-6">
+      <section className="md:mx-auto md:container   md:pt-0 mx-6">
         <div className="grid grid-cols-[repeat(auto-fit,minmax(30ch,1fr))] gap-20 ">
           <Cards>
             <h1 className="[font-size:_clamp(1rem,5vw,2rem)]">EXPLORE OUR PIXELS</h1>
