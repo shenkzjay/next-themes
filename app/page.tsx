@@ -18,6 +18,7 @@ import SEO from "@/public/images/seo.png";
 import DEV from "@/public/images/dev.png";
 import ADS from "@/public/images/ads.png";
 import Chat from "@/public/images/chat us.png";
+import Link from "next/link";
 
 const clashDisplayFont = localFont({
   src: [
@@ -51,7 +52,7 @@ const clashDisplayFont = localFont({
 
 export default function App() {
   return (
-    <main className="bg-[#1e1e1e]">
+    <main className="bg-[#1e1e1e] ">
       {/* Header section */}
       <section className="scroller">
         <Header>
@@ -151,24 +152,42 @@ export default function App() {
       </section>
 
       {/**Scrolltrigger maquee section */}
-      <section>
+      <section className="flex items-center justify-center gap-6 overflow-hidden py-[150px] ">
         <div
-          className={`flex flex-row text-nowrap items-center text-white text-6xl space-x-10 overflow-hidden py-[150px] font-bold ${clashDisplayFont.className}`}
+          className={`scrollmarquee flex flex-row text-nowrap items-center justify-center text-white text-6xl space-x-10 font-bold ${clashDisplayFont.className}`}
         >
-          <span>
+          <span className="fill-white text-white flex w-16 h-16">
             {" "}
             <StarIcon />
           </span>
           <p>DISCUSS YOUR IDEAS</p>
-          <span>
+          <span className="fill-white text-white flex w-16 h-16">
             <StarIcon />
           </span>
           <p>WE DIGITIZE YOUR IDEAS </p>
-          <span>
+          <span className="fill-white text-white flex w-16 h-16">
             {" "}
             <StarIcon />
           </span>
         </div>
+        {/* 
+        <div
+          className={`scrollmarquee flex flex-row text-nowrap items-center  text-white text-6xl space-x-10 font-bold ${clashDisplayFont.className}`}
+        >
+          <span className="fill-white text-white flex w-24 h-24">
+            {" "}
+            <StarIcon />
+          </span>
+          <p>DISCUSS YOUR IDEAS</p>
+          <span className="fill-white text-white flex w-24 h-24">
+            <StarIcon />
+          </span>
+          <p>WE DIGITIZE YOUR IDEAS </p>
+          <span className="fill-white text-white flex w-24 h-24">
+            {" "}
+            <StarIcon />
+          </span>
+        </div> */}
       </section>
 
       {/**Our service section cards */}
@@ -608,10 +627,14 @@ export default function App() {
       {/**footer section */}
 
       <footer className="text-white md:mx-auto md:container pb-[150px] mx-6">
-        <section className="flex md:flex-row flex-col justify-between uppercase space-y-4 md:space--0">
+        <section className="flex md:flex-row flex-col justify-between items-center uppercase space-y-4 md:space-y-0 md:space--0">
           <div>© Copyright 2024</div>
-          <div>✨ A landing page theme project ✨</div>
-          <div>more exciting projects →</div>
+          <div>
+            ✨ A landing page theme project by <i>Olajide seun</i> ✨
+          </div>
+          <div>
+            <Link href={"/hope1"}>more exciting projects →</Link>
+          </div>
         </section>
       </footer>
     </main>

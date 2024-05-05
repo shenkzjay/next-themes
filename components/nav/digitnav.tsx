@@ -143,7 +143,7 @@ export const DigitNav = () => {
           className="md:hidden flex absolute md:relative right-6 border border-white md:border-0 rounded-full"
         >
           <a
-            className="md:hidden flex px-4 py-2 md:py-0 md:px-0  text-white font-bold [transform:_rotate(-180deg)]"
+            className="md:hidden flex px-2 py-2 md:py-0 md:px-0  text-white font-bold [transform:_rotate(-180deg)]"
             href="#menuclose"
           >
             <ArrowRight />

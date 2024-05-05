@@ -156,7 +156,7 @@ export default function HopeOne() {
           trigger: ".clipsec",
           scrub: true,
           start: "top top",
-          end: isDesktop ? "+=100" : "+=800",
+          end: isDesktop ? "+=100" : "bottom",
         },
       });
 
@@ -164,6 +164,7 @@ export default function HopeOne() {
 
       tl5.to(".clipscroll", {
         clipPath: "circle(0% at 50% 50%)",
+        duration: 1,
       });
       tl5.to(".bgtext", {
         opacity: 1,
